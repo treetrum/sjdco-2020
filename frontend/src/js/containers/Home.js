@@ -1,10 +1,10 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-import NavBar from "../organisms/Navbar";
-import NavLinks from "../molecules/NavLinks";
-import ParallaxIcons from "../molecules/ParallaxIcons";
-import ParallaxLetters from "../molecules/ParallaxLetters";
+import NavBar from "../components/organisms/Navbar";
+import NavLinks from "../components/molecules/NavLinks";
+import ParallaxIcons from "../components/molecules/ParallaxIcons";
+import ParallaxLetters from "../components/molecules/ParallaxLetters";
 
 const Home = () => {
     const isActive = useSelector(state => state.ui.mobileMenuOpen);

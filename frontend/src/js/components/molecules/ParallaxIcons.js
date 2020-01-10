@@ -1,15 +1,15 @@
 import React from "react";
 
-import aperture from "../../images/icons/aperture.svg";
-import checkbox from "../../images/icons/checkbox.svg";
-import command from "../../images/icons/command.svg";
-import cpu from "../../images/icons/cpu.svg";
-import cube from "../../images/icons/cube.svg";
-import headphones from "../../images/icons/headphones.svg";
-import lightningBolt from "../../images/icons/lightning-bolt.svg";
-import mapPin from "../../images/icons/map-pin.svg";
-import musicalNote from "../../images/icons/musical-note.svg";
-import pulse from "../../images/icons/pulse.svg";
+import aperture from "../../../images/icons/aperture.svg";
+import checkbox from "../../../images/icons/checkbox.svg";
+import command from "../../../images/icons/command.svg";
+import cpu from "../../../images/icons/cpu.svg";
+import cube from "../../../images/icons/cube.svg";
+import headphones from "../../../images/icons/headphones.svg";
+import lightningBolt from "../../../images/icons/lightning-bolt.svg";
+import mapPin from "../../../images/icons/map-pin.svg";
+import musicalNote from "../../../images/icons/musical-note.svg";
+import pulse from "../../../images/icons/pulse.svg";
 
 const ParallaxIcons = () => {
     return (

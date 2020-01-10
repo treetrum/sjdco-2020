@@ -1,7 +1,7 @@
 import React from "react";
 
-import SSVG from "../../images/logos/S.svg";
-import DSVG from "../../images/logos/D.svg";
+import SSVG from "../../../images/logos/S.svg";
+import DSVG from "../../../images/logos/D.svg";
 
 const ParallaxLetters = () => {
     return (

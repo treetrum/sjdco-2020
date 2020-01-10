@@ -1,9 +1,9 @@
 import React from "react";
 
 import { useDispatch, useSelector } from "react-redux";
-import SDLogo from "../../images/logos/sd-logo.svg";
+import SDLogo from "../../../images/logos/sd-logo.svg";
 import NavLinks from "../molecules/NavLinks";
-import actions from "../actions";
+import actions from "../../actions";
 
 const NavBar = () => {
     const dispatch = useDispatch();
