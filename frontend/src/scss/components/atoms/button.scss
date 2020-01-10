@@ -1,0 +1,40 @@
+%button {
+    display: inline-block;
+    margin-bottom: 5px;
+    padding: 14px 40px;
+    transition: 0.2s ease all;
+    border-radius: 5px;
+    color: $white;
+    font-weight: 700;
+    line-height: 1;
+    box-shadow: 0 5px 10px rgba($black, 0.2);
+
+    &:hover {
+        color: $white;
+        box-shadow: 0 5px 15px rgba($black, 0.3);
+    }
+}
+
+.button-green {
+    @extend %button;
+    background-color: $green;
+    &:hover {
+        background-color: lighten($green, 10%);
+    }
+}
+
+.button-purple {
+    @extend %button;
+    background-color: $purple;
+    &:hover {
+        background-color: lighten($purple, 10%);
+    }
+}
+
+.button-blue {
+    @extend %button;
+    background-color: $blue;
+    &:hover {
+        background-color: lighten($blue, 10%);
+    }
+}

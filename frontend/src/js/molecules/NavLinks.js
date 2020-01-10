@@ -10,7 +10,6 @@ const NavLinks = () => {
             {menuLinks.map(({ link }, index) => (
                 <MenuLink key={index} link={link} />
             ))}
-            ;
         </>
     );
 };

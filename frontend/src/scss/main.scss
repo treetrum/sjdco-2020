@@ -9,9 +9,13 @@
 @import "core/typography";
 @import "core/iconfont";
 
-// Import Components
+@import "components/atoms/button";
+@import "components/atoms/highlight";
+
 @import "components/organisms/navbar";
 @import "components/organisms/mobile-menu";
+@import "components/organisms/hero-home";
+@import "components/organisms/parallax-icons";
 
 // Included last so that these styles are guaranteed
 @import "core/animations";

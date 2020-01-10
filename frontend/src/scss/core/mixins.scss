@@ -1,7 +1,36 @@
+// Shared Inputs
 @mixin sharedInputs {
     input,
     select,
     textarea {
         @content;
+    }
+}
+
+// Rem Calc
+$browser-context: 16;
+@function rem-calc($pixels, $context: $browser-context) {
+    @if (unitless($pixels)) {
+        $pixels: $pixels * 1px;
+    }
+    @if (unitless($context)) {
+        $context: $context * 1px;
+    }
+    @return $pixels / $context * 1em;
+}
+
+// Absolutely Fill
+@mixin absolutelyFull {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+@mixin linkColor($c1, $c2) {
+    color: $c1;
+    &:hover {
+        color: $c2;
     }
 }

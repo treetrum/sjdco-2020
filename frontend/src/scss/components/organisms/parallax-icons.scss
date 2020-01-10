@@ -1,0 +1,76 @@
+.parallax-icons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    .layer {
+        @include absolutelyFull;
+    }
+
+    img {
+        height: 30px;
+        @include breakpoint(md) {
+            height: 45px;
+        }
+        @include breakpoint(lg) {
+            height: 60px;
+        }
+
+        position: absolute;
+        width: auto;
+        transform: translate(-50%, -50%);
+        opacity: 0.25;
+
+        &.aperture {
+            top: 80%;
+            left: 45%;
+        }
+
+        &.checkbox {
+            top: 10%;
+            left: 90%;
+        }
+
+        &.command {
+            top: 50%;
+            left: 70%;
+        }
+
+        &.cpu {
+            top: 25%;
+            left: 60%;
+        }
+
+        &.cube {
+            top: 10%;
+            left: 40%;
+        }
+
+        &.headphones {
+            top: 20%;
+            left: 20%;
+        }
+
+        &.lightning-bolt {
+            top: 90%;
+            left: 25%;
+        }
+
+        &.map-pin {
+            top: 40%;
+            left: 98%;
+        }
+
+        &.musical-note {
+            top: 60%;
+            left: 10%;
+        }
+
+        &.pulse {
+            top: 95%;
+            left: 75%;
+        }
+    }
+}

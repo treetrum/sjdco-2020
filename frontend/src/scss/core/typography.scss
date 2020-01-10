@@ -10,13 +10,14 @@ h5,
 h6,
 [class*="heading-"] {
     font-family: $font_heading;
+    line-height: 1.2;
     margin: 0;
 }
 
 p,
 li {
     margin: 0;
-    line-height: 1.5;
+    line-height: 1.65;
     font-size: 1em;
 }
 
@@ -27,5 +28,5 @@ p {
 a {
     text-decoration: none;
     color: black;
-    transition: 250ms ease color;
+    transition: 250ms ease all;
 }

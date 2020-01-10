@@ -1,0 +1,98 @@
+.hero-home {
+    @extend %coverImage;
+
+    display: flex;
+    position: relative;
+    align-items: center;
+    min-height: 100vh;
+    background-image: radial-gradient(
+        lighten($background, 2.5%),
+        darken($background, 2.5%)
+    );
+    overflow: hidden;
+
+    .parallax-letters {
+        @include show-for(md);
+        @include absolutelyFull;
+        overflow: hidden;
+
+        .layer {
+            @include absolutelyFull;
+
+            img {
+                position: absolute;
+            }
+
+            &.s {
+                img {
+                    top: -5%;
+                    left: -5%;
+                    height: 417px;
+                }
+            }
+
+            &.d {
+                img {
+                    right: -5%;
+                    bottom: -5%;
+                    height: 400px;
+                }
+            }
+        }
+    }
+
+    .container {
+        position: relative;
+        justify-content: center;
+        margin-top: 60px;
+        z-index: 1;
+
+        .site-title {
+            margin-bottom: 1;
+            color: $white;
+            font-size: rem-calc(45px);
+            letter-spacing: -2px;
+
+            @include breakpoint(md) {
+                margin-bottom: 2rem;
+                font-size: rem-calc(69px);
+            }
+        }
+
+        .subtitle {
+            margin-bottom: 1.5rem;
+            color: $white;
+            font-family: $font_mono;
+            font-size: rem-calc(16px);
+
+            @include breakpoint(md) {
+                margin-bottom: 2.5rem;
+                font-size: rem-calc(22px);
+            }
+        }
+    }
+
+    .more-link {
+        position: absolute;
+        bottom: 50px;
+        width: 100%;
+        text-align: center;
+        z-index: 1;
+
+        a {
+            @include linkColor($white, $purple);
+            position: relative;
+
+            &::after {
+                position: absolute;
+                top: 35px;
+                left: 50%;
+                width: 1px;
+                height: 100px;
+                transform: translateX(-50%);
+                background-color: $white;
+                content: "";
+            }
+        }
+    }
+}
