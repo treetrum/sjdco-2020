@@ -5,11 +5,12 @@
     "main": "index.js",
     "scripts": {
         "start": "npm-run-all --parallel watch:twig watch:bundle",
-        "build": "npm-run-all clean compile:bundle compile:twig css-paths",
+        "build": "npm-run-all clean compile:bundle build:twig css-paths",
         "clean": "rimraf dist/*",
         "watch:twig": "watch 'yarn run compile:twig' ./src/views --interval=0.1",
-        "watch:bundle": "webpack --watch --env dev",
-        "compile:twig": "node scripts/compile-twig.js",
+        "watch:bundle": "webpack-dev-server --env dev",
+        "compile:twig": "NODE_ENV=development node scripts/compile-twig.js",
+        "build:twig": "NODE_ENV=production node scripts/compile-twig.js",
         "compile:bundle": "webpack -p --progress --env prod",
         "css-paths": "node scripts/replace-css-image-paths.js"
     },
@@ -53,6 +54,8 @@
         "react": "^16.12.0",
         "react-dom": "^16.12.0",
         "react-redux": "^7.1.3",
+        "react-router-dom": "^5.1.2",
+        "react-transition-group": "^4.3.0",
         "redux": "^4.0.5",
         "redux-logger": "^3.0.6",
         "redux-thunk": "^2.3.0",
@@ -64,6 +67,7 @@
         "url-loader": "^1.1.1",
         "watch": "^1.0.2",
         "webpack": "^4.20.2",
-        "webpack-cli": "^3.1.2"
+        "webpack-cli": "^3.1.2",
+        "webpack-dev-server": "^3.10.1"
     }
 }

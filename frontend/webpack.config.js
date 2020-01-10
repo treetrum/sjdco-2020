@@ -7,6 +7,7 @@ const imageminMozjpeg = require("imagemin-mozjpeg");
 const autoprefixer = require("autoprefixer");
 
 module.exports = env => {
+    const isProduction = env === "prod";
     return {
         mode: "development",
         devtool: env === "prod" ? "" : "source-map",
@@ -14,6 +15,7 @@ module.exports = env => {
         output: {
             path: path.join(__dirname, "./dist"),
             filename: "js/bundle.js",
+            publicPath: "/",
         },
         module: {
             rules: [
@@ -34,7 +36,9 @@ module.exports = env => {
                     test: /\.scss$/,
                     use: [
                         {
-                            loader: MiniCssExtractPlugin.loader,
+                            loader: isProduction
+                                ? MiniCssExtractPlugin.loader
+                                : "style-loader",
                         },
                         {
                             loader: "css-loader",
@@ -85,6 +89,14 @@ module.exports = env => {
                 },
             ],
         },
+        devServer: {
+            contentBase: path.join(__dirname, "dist"),
+            compress: true,
+            port: 3000,
+            historyApiFallback: true,
+            open: true,
+            hot: true,
+        },
         plugins: [
             new MiniCssExtractPlugin({
                 filename: "css/[name].css",
@@ -106,12 +118,13 @@ module.exports = env => {
                     }),
                 ],
             }),
-            new BrowserSyncPlugin({
-                host: "localhost",
-                port: 3000,
-                server: { baseDir: ["dist"] },
-                watch: true,
-            }),
+            // new BrowserSyncPlugin({
+            //     host: "localhost",
+            //     port: 3000,
+            //     server: { baseDir: ["dist"] },
+            //     watch: true,
+            //     single: true,
+            // }),
         ],
     };
 };
