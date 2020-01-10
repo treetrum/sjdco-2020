@@ -1,5 +1,6 @@
 import ActionTypes from "../constants/ActionTypes";
 import * as options from "./options";
+import * as global from "./global";
 
 const initialFetchAllRequest = () => ({
     type: ActionTypes.INITIAL_FETCH_ALL_REQUEST,
@@ -15,7 +16,10 @@ const initialFetchAllFail = () => ({
 
 export const initialFetchAll = () => dispatch => {
     dispatch(initialFetchAllRequest());
-    return Promise.all([dispatch(options.fetchOptions())])
+    return Promise.all([
+        dispatch(options.fetchOptions()),
+        dispatch(global.fetchGlobal()),
+    ])
         .then(() => {
             dispatch(initialFetchAllSuccess());
         })

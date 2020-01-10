@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { CSSTransition } from "react-transition-group";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Helmet from "react-helmet";
 
 import actions from "./actions";
 
@@ -22,8 +23,11 @@ const App = () => {
         dispatch(actions.initialFetchAll());
     }, []);
 
+    const global = useSelector(state => state.global);
+
     return (
         <Router>
+            <Helmet titleTemplate={`%s - ${global.name}`} />
             <CSSTransition in={loading} timeout={350} classNames="loading">
                 <div className="page-loader loading-enter">
                     <div className="progress-bar">

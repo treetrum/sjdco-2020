@@ -12,7 +12,12 @@ export const getOptions = () => {
     return get(Config.optionsAPI);
 };
 
+export const getGlobals = () => {
+    return get(Config.globalAPI);
+};
+
 export default {
     getPage,
     getOptions,
+    getGlobals,
 };

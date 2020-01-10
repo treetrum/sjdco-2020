@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import Helmet from "react-helmet";
 
 import ParallaxIcons from "../components/molecules/ParallaxIcons";
 import ParallaxLetters from "../components/molecules/ParallaxLetters";
@@ -19,6 +20,9 @@ const Home = props => {
 
     return (
         <>
+            <Helmet>
+                <title>Home</title>
+            </Helmet>
             <header className="hero-home">
                 <ParallaxIcons />
                 <ParallaxLetters />
