@@ -1,29 +1,27 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
-import NavBar from "../components/organisms/Navbar";
-import NavLinks from "../components/molecules/NavLinks";
 import ParallaxIcons from "../components/molecules/ParallaxIcons";
 import ParallaxLetters from "../components/molecules/ParallaxLetters";
+import actions from "../actions";
 
-const Home = () => {
-    const isActive = useSelector(state => state.ui.mobileMenuOpen);
+const Home = props => {
+    const showLoader = useSelector(state => state.ui.showLoader);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(actions.fetchPage(props.location.path));
+    }, []);
+
+    if (showLoader) {
+        return null;
+    }
+
     return (
         <>
-            <NavBar />
-
-            <div className={`mobile-menu ${isActive ? "active" : ""}`}>
-                <div className="container">
-                    <nav className="links">
-                        <NavLinks />
-                    </nav>
-                </div>
-            </div>
-
             <header className="hero-home">
                 <ParallaxIcons />
                 <ParallaxLetters />
-
                 <div className="container">
                     <h1 className="site-title">Sam Davis</h1>
                     <p className="subtitle">

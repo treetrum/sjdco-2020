@@ -4,10 +4,15 @@ const get = url => {
     return fetch(url).then(res => res.json());
 };
 
-export const getPages = () => get(Config.pagesAPI);
-export const getOptions = () => get(Config.optionsAPI);
+export const getPage = (pagePath = "/home") => {
+    return get(Config.pageAPI + pagePath);
+};
+
+export const getOptions = () => {
+    return get(Config.optionsAPI);
+};
 
 export default {
-    getPages,
+    getPage,
     getOptions,
 };

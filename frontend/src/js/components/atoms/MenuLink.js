@@ -1,11 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const MenuLink = ({ link }) => {
     const renderLink = l => {
         switch (l.type) {
             case "standard":
-                return <a href={l.page.url}>{l.page.title}</a>;
+                return <Link to={l.page.url}>{l.page.title}</Link>;
             case "custom":
                 return (
                     <a

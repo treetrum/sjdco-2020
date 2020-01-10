@@ -1,5 +1,4 @@
 import ActionTypes from "../constants/ActionTypes";
-import * as pages from "./pages";
 import * as options from "./options";
 
 const initialFetchAllRequest = () => ({
@@ -16,10 +15,7 @@ const initialFetchAllFail = () => ({
 
 export const initialFetchAll = () => dispatch => {
     dispatch(initialFetchAllRequest());
-    return Promise.all([
-        dispatch(pages.fetchPages()),
-        dispatch(options.fetchOptions()),
-    ])
+    return Promise.all([dispatch(options.fetchOptions())])
         .then(() => {
             dispatch(initialFetchAllSuccess());
         })

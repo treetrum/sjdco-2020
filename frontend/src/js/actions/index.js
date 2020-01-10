@@ -1,11 +1,11 @@
 import * as initialFetchAll from "./initialFetchAll";
-import * as pages from "./pages";
+import * as page from "./page";
 import * as options from "./options";
 import * as ui from "./ui";
 
 export default {
     ...initialFetchAll,
-    ...pages,
+    ...page,
     ...options,
     ...ui,
 };

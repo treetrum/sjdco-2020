@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
 import SDLogo from "../../../images/logos/sd-logo.svg";
@@ -16,9 +17,9 @@ const NavBar = () => {
             <div className="container">
                 <div className="navbar-items">
                     <div className="navbar-item logo">
-                        <a href="/">
+                        <Link to="/">
                             <img src={SDLogo} alt="SJDco Logo" />
-                        </a>
+                        </Link>
                     </div>
                     <nav className="navbar-item menu">
                         <NavLinks />

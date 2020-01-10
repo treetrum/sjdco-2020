@@ -1,12 +1,12 @@
 import { combineReducers } from "redux";
 
-import pages from "./pages";
+import page from "./page";
 import initialFetchAll from "./initialFetchAll";
 import options from "./options";
 import ui from "./ui";
 
 export default combineReducers({
-    pages,
+    page,
     initialFetchAll,
     options,
     ui,

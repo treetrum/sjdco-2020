@@ -3,23 +3,23 @@ import ActionTypes from "../constants/ActionTypes";
 const initialState = {
     loading: false,
     error: null,
-    pages: [],
+    page: {},
 };
 
-const pagesReducer = (state = initialState, action) => {
+const pageReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ActionTypes.FETCH_PAGES_REQUEST:
+        case ActionTypes.FETCH_PAGE_REQUEST:
             return {
                 ...state,
                 loading: true,
             };
-        case ActionTypes.FETCH_PAGES_SUCCESS:
+        case ActionTypes.FETCH_PAGE_SUCCESS:
             return {
                 ...state,
                 loading: false,
-                pages: action.pages,
+                page: action.page,
             };
-        case ActionTypes.FETCH_PAGES_FAIL:
+        case ActionTypes.FETCH_PAGE_FAIL:
             return {
                 ...state,
                 loading: false,
@@ -30,4 +30,4 @@ const pagesReducer = (state = initialState, action) => {
     }
 };
 
-export default pagesReducer;
+export default pageReducer;
