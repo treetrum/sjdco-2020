@@ -1,0 +1,77 @@
+header.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 101;
+    padding: 24px 0;
+
+    .navbar-items {
+        display: flex;
+
+        .navbar-item {
+            margin-right: 24px;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            &.logo {
+                flex-grow: 1;
+                height: 65px;
+                backface-visibility: hidden;
+
+                img {
+                    height: 100%;
+                    filter: drop-shadow(0 0 10px rgba(black, 0.3));
+                }
+            }
+
+            &.menu {
+                @include show-for(md);
+
+                display: flex;
+                align-items: center;
+
+                li {
+                    display: block;
+
+                    a {
+                        display: block;
+                        padding: 24px;
+                        color: white;
+                        font-weight: 700;
+                        opacity: 0.5;
+
+                        &:hover {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+
+            &.hamburger {
+                @include hide-for(md);
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .animated-hamburger {
+                    position: relative;
+                    @include animatedHamburger(
+                        $width: 26px,
+                        $height: 20px,
+                        $barHeight: 3px,
+                        $barColor: white,
+                        $duration: 0.4s,
+                        $rotation: 180deg,
+                        $rounded: true
+                    );
+                    cursor: pointer;
+                    z-index: 1000;
+                }
+            }
+        }
+    }
+}

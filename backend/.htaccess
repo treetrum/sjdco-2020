@@ -1,0 +1,22 @@
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
+
+# Increase Max File Size
+php_value post_max_size 64M
+php_value upload_max_filesize 32M
+
+# log php errors
+php_flag display_startup_errors off
+php_flag display_errors off
+php_flag html_errors off
+php_flag  log_errors on
+php_value error_log /var/www/html/php-errors.log

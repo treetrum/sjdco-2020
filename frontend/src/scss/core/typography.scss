@@ -1,0 +1,31 @@
+body {
+    font-family: $font_main;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+[class*="heading-"] {
+    font-family: $font_heading;
+    margin: 0;
+}
+
+p,
+li {
+    margin: 0;
+    line-height: 1.5;
+    font-size: 1em;
+}
+
+p {
+    margin: 1em 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    transition: 250ms ease color;
+}

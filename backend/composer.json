@@ -1,0 +1,52 @@
+{
+    "name": "sjd/zest",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Sam Davis",
+            "email": "sam@sjd.co"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "sjd/advanced-custom-fields-pro",
+                "version": "5.8.4",
+                "type": "wordpress-plugin",
+                "dist": {
+                    "type": "zip",
+                    "url": "https://connect.advancedcustomfields.com/index.php?a=download&p=pro&k=b3JkZXJfaWQ9ODExNTV8dHlwZT1wZXJzb25hbHxkYXRlPTIwMTYtMDUtMDkgMDI6NDA6MjU=&v=5.8.4"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "sjd/wp-sync-db",
+                "version": "1.5",
+                "type": "wordpress-plugin",
+                "dist": {
+                    "type": "zip",
+                    "url": "https://github.com/wp-sync-db/wp-sync-db/archive/master.zip"
+                }
+            }
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/treetrum/acf-component-field.git"
+        }
+    ],
+    "require": {
+        "sjd/wp-sync-db": "^1.5",
+        "sjd/advanced-custom-fields-pro": "^5.8",
+        "treetrum/acf-component-field": "^2.0",
+        "wpackagist-plugin/classic-editor": "^1.5",
+        "wpackagist-plugin/acf-to-rest-api": "^3.1",
+        "wpackagist-plugin/relative-url": "^0.1.7"
+    }
+}

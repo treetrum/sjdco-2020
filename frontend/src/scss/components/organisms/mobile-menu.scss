@@ -1,0 +1,43 @@
+.mobile-menu {
+    @include hide-for(md);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba($background, 0.95);
+    z-index: 100;
+
+    &:not(.active) {
+        transition: 0.4s ease opacity, 0 0.4s ease visibility;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    &.active {
+        transition: 0.4s ease opacity;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .links {
+        li {
+            display: block;
+            a {
+                display: block;
+                padding: 0.25rem 0;
+                font-size: 24px;
+                font-weight: bold;
+                color: white;
+                &:hover {
+                    color: $purple;
+                }
+            }
+        }
+    }
+}

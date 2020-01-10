@@ -1,0 +1,77 @@
+.fade {
+    &-enter {
+        position: relative;
+        opacity: 0;
+        transition: 1s ease all;
+        z-index: 1;
+
+        &-active {
+            opacity: 1;
+        }
+    }
+
+    &-exit {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 1;
+    }
+}
+
+.slide-in-left {
+    &-enter {
+        position: relative;
+        transition: 500ms 100ms ease all;
+        opacity: 0;
+        z-index: 1;
+        transform: translateX(25%);
+
+        &-active {
+            opacity: 1;
+            transform: translateX(0%);
+        }
+    }
+
+    &-exit {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 1;
+        transition: 500ms ease all;
+        transform: translateX(0%);
+
+        &-active {
+            // transform: translateX(-25%);
+            opacity: 0;
+        }
+    }
+}
+
+.slide-in-right {
+    &-enter {
+        position: relative;
+        transition: 500ms ease all;
+        opacity: 0;
+        z-index: 1;
+        transform: translateX(-25%);
+
+        &-active {
+            opacity: 1;
+            transform: translateX(0%);
+        }
+    }
+
+    &-exit {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 1;
+        transition: 500ms ease all;
+        transform: translateX(0%);
+
+        &-active {
+            // transform: translateX(25%);
+            opacity: 0;
+        }
+    }
+}

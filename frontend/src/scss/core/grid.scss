@@ -1,0 +1,123 @@
+$grid_column_count: 12;
+$grid_max_width: 1300px;
+$grid_column_gutter: 20px;
+
+$page_padding: 25px;
+$page_padding_md: 35px;
+$page_padding_lg: 50px;
+
+$grid_breakpoints: (
+    xs: 0,
+    // 0-768
+        sm: 48rem - 0.0625rem,
+    // 768-1024
+        md: 64rem - 0.0625rem,
+    // 1024-1440
+        lg: 90rem - 0.0625rem,
+    // 1440-1680
+        xl: 105rem - 0.0625rem,
+); // 1680+
+
+@mixin breakpoint($breakpoint, $down: false) {
+    @if map-has-key($grid_breakpoints, $breakpoint) {
+        @if $down {
+            @media (max-width: #{map-get($grid_breakpoints, $breakpoint)}) {
+                @content;
+            }
+        } @else {
+            @media (min-width: #{map-get($grid_breakpoints, $breakpoint) + (1rem/16)}) {
+                @content;
+            }
+        }
+    } @else if ($breakpoint==0) {
+        @content;
+    } @else {
+        @if $down {
+            @media (max-width: #{$breakpoint}) {
+                @content;
+            }
+        } @else {
+            @media (min-width: #{$breakpoint}) {
+                @content;
+            }
+        }
+    }
+}
+
+@mixin show-for($size) {
+    @include breakpoint($size, true) {
+        display: none;
+    }
+}
+
+@mixin hide-for($size) {
+    @include breakpoint($size) {
+        display: none;
+    }
+}
+
+.container {
+    width: 100%;
+    max-width: $grid_max_width;
+    margin: 0 auto;
+    padding: 0 $page_padding;
+
+    @include breakpoint(md) {
+        padding: 0 $page_padding_md;
+    }
+
+    @include breakpoint(lg) {
+        padding: 0 $page_padding_lg;
+    }
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -$grid_column_gutter / 2;
+    margin-right: -$grid_column_gutter / 2;
+
+    &.space-between {
+        justify-content: space-between;
+    }
+
+    &.align-center {
+        justify-content: center;
+    }
+}
+
+.columns {
+    max-width: 100%;
+    flex-basis: 100%;
+    flex-grow: 0;
+    padding-right: $grid_column_gutter / 2;
+    padding-left: $grid_column_gutter / 2;
+}
+
+@each $name, $breakpoint in $grid_breakpoints {
+    .show-for-#{$name} {
+        @include show-for($name);
+    }
+
+    .hide-for-#{$name} {
+        @include hide-for($name);
+    }
+
+    @include breakpoint($breakpoint) {
+        .columns.#{$name}-order-first {
+            order: 0;
+        }
+
+        .columns.#{$name}-order-last {
+            order: $grid_column_count;
+        }
+
+        @for $i from 1 through $grid_column_count {
+            .columns.#{$name}-#{$i} {
+                flex-basis: 100% / ($grid_column_count / $i);
+                flex-shrink: 0;
+                flex-grow: 0;
+            }
+        }
+    }
+}
