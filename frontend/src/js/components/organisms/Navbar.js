@@ -1,25 +1,25 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
 import SDLogo from "../../../images/logos/sd-logo.svg";
 import NavLinks from "../molecules/NavLinks";
 import actions from "../../actions";
+import PreloadLink from "../../shared/PreloadLink";
 
 const NavBar = () => {
     const dispatch = useDispatch();
     const toggleMenu = () => {
         dispatch(actions.toggleMenu());
     };
-    const isActive = useSelector(state => state.ui.mobileMenuOpen);
+    const isMenuOpen = useSelector(state => state.ui.mobileMenuOpen);
     return (
         <header className="navbar">
             <div className="container">
                 <div className="navbar-items">
                     <div className="navbar-item logo">
-                        <Link to="/">
+                        <PreloadLink to="/">
                             <img src={SDLogo} alt="SJDco Logo" />
-                        </Link>
+                        </PreloadLink>
                     </div>
                     <nav className="navbar-item menu">
                         <NavLinks />
@@ -29,7 +29,7 @@ const NavBar = () => {
                             style={{ background: "none", border: 0 }}
                             type="button"
                             className={`animated-hamburger ${
-                                isActive ? "active" : ""
+                                isMenuOpen ? "active" : ""
                             }`}
                             onClick={toggleMenu}
                         >

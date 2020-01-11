@@ -1,5 +1,6 @@
 import ActionTypes from "../constants/ActionTypes";
 import * as options from "./options";
+import * as page from "./page";
 import * as global from "./global";
 
 const initialFetchAllRequest = () => ({
@@ -19,6 +20,7 @@ export const initialFetchAll = () => dispatch => {
     return Promise.all([
         dispatch(options.fetchOptions()),
         dispatch(global.fetchGlobal()),
+        dispatch(page.fetchPage(window.location.pathname)),
     ])
         .then(() => {
             dispatch(initialFetchAllSuccess());

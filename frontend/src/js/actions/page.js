@@ -1,3 +1,4 @@
+import _ from "lodash";
 import API from "../api";
 import ActionTypes from "../constants/ActionTypes";
 
@@ -23,9 +24,10 @@ const fetchPageRequest = () => ({
     type: ActionTypes.FETCH_PAGE_REQUEST,
 });
 
-const fetchPageSuccess = page => ({
+const fetchPageSuccess = (page, path) => ({
     type: ActionTypes.FETCH_PAGE_SUCCESS,
     page,
+    path,
 });
 
 const fetchPageFail = error => ({
@@ -33,13 +35,24 @@ const fetchPageFail = error => ({
     error,
 });
 
-export const fetchPage = path => dispatch => {
+export const fetchPage = (path = "/") => (dispatch, getState) => {
+    const page = getState().page[path];
+
     dispatch(ui.startLoading());
+    if (page && !_.isEmpty(page)) {
+        return Promise.resolve()
+            .takeAtLeast(500)
+            .then(() => {
+                dispatch(fetchPageSuccess(page, path));
+                dispatch(ui.stopLoading());
+            });
+    }
     dispatch(fetchPageRequest());
-    return API.getPage(path)
-        .takeAtLeast(1000)
+    const pathToFetch = path === "/" ? "/home" : path;
+    return API.getPage(pathToFetch)
+        .takeAtLeast(500)
         .then(page => {
-            dispatch(fetchPageSuccess(page));
+            dispatch(fetchPageSuccess(page, path));
             return page;
         })
         .catch(err => {

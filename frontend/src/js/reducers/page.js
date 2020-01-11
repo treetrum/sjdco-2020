@@ -17,7 +17,7 @@ const pageReducer = (state = initialState, action) => {
             return {
                 ...state,
                 loading: false,
-                page: action.page,
+                [action.path]: action.page,
             };
         case ActionTypes.FETCH_PAGE_FAIL:
             return {

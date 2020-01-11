@@ -1,20 +1,13 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React from "react";
 import Helmet from "react-helmet";
 
+import usePageData from "../hooks/usePageData";
 import ParallaxIcons from "../components/molecules/ParallaxIcons";
 import ParallaxLetters from "../components/molecules/ParallaxLetters";
-import actions from "../actions";
 
 const Home = props => {
-    const showLoader = useSelector(state => state.ui.showLoader);
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(actions.fetchPage(props.location.path));
-    }, []);
-
-    if (showLoader) {
+    const [loading, page] = usePageData(props.location.pathname);
+    if (loading) {
         return null;
     }
 

@@ -1,12 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import actions from "../../actions";
+import PreloadLink from "../../shared/PreloadLink";
 
 const MenuLink = ({ link }) => {
     const renderLink = l => {
         switch (l.type) {
             case "standard":
-                return <Link to={l.page.url}>{l.page.title}</Link>;
+                return (
+                    <PreloadLink to={l.page.url}>{l.page.title}</PreloadLink>
+                );
             case "custom":
                 return (
                     <a

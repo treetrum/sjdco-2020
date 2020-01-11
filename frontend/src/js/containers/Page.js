@@ -1,20 +1,11 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
 import Helmet from "react-helmet";
-import actions from "../actions";
+import _ from "lodash";
+import usePageData from "../hooks/usePageData";
 
 const Page = props => {
-    const showLoader = useSelector(state => state.ui.showLoader);
-    const dispatch = useDispatch();
-    useEffect(() => {
-        console.log(`Fetching with`, props);
-        dispatch(actions.fetchPage(props.location.pathname));
-    }, [props.location]);
-    const page = useSelector(state => state.page.page) || {};
-    if (showLoader) {
-        return null;
-    }
-
+    const [loading, page] = usePageData(props.location.pathname);
+    if (loading || _.isEmpty(page)) return null;
     return (
         <>
             {page.title ? (
@@ -22,7 +13,12 @@ const Page = props => {
                     <title>{page.title.rendered}</title>{" "}
                 </Helmet>
             ) : null}
-            <h1>Some page</h1>
+            <div className="container" style={{ marginTop: 200 }}>
+                <h1>{page.title.rendered}</h1>
+                <div
+                    dangerouslySetInnerHTML={{ __html: page.content.rendered }}
+                />
+            </div>
         </>
     );
 };

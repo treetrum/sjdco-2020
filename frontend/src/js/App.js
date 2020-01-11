@@ -12,6 +12,13 @@ import Page from "./containers/Page";
 import NavBar from "./components/organisms/Navbar";
 import NavLinks from "./components/molecules/NavLinks";
 
+const loadPageData = (nextState, replace, callback) => {
+    console.log({ nextState, replace });
+    setTimeout(() => {
+        callback();
+    }, 1000);
+};
+
 const App = () => {
     const dispatch = useDispatch();
     const loading = useSelector(
@@ -27,7 +34,10 @@ const App = () => {
 
     return (
         <Router>
-            <Helmet titleTemplate={`%s - ${global.name}`} />
+            <Helmet
+                titleTemplate={`%s - ${global.name}`}
+                defaultTitle="Sam Davis - Front End Developer"
+            />
             <CSSTransition in={loading} timeout={350} classNames="loading">
                 <div className="page-loader loading-enter">
                     <div className="progress-bar">
