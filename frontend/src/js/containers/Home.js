@@ -13,9 +13,9 @@ const Home = props => {
 
     return (
         <>
-            <Helmet>
+            {/* <Helmet>
                 <title>Home</title>
-            </Helmet>
+            </Helmet> */}
             <header className="hero-home">
                 <ParallaxIcons />
                 <ParallaxLetters />

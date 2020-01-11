@@ -23,8 +23,10 @@ function add_post_types() {
 		'public' => true,
 		'menu_icon' => 'dashicons-admin-page',
 		'supports' => array( 'title', 'editor', 'thumbnail' ),
-		'has_archive' => false,
-		'hierarchical' => false
+		'has_archive' => 'projects',
+		'hierarchical' => false,
+		"show_in_rest" => true,
+		"rest_base" => "projects"
 	);
 	register_post_type( 'project', $args );
 
@@ -39,10 +41,10 @@ if( function_exists('acf_add_options_page') ) {
 }
 
 add_action('rest_api_init', function () {
-	$namespace = 'presspack/v1';
-	register_rest_route( $namespace, '/path/(?P<url>.*?)', array(
+	$namespace = 'sjdco/v1';
+	register_rest_route( $namespace, '/post-by-path/(?P<url>.*?)', array(
 		'methods'  => 'GET',
-		'callback' => 'get_post_for_url',
+		'callback' => 'get_post_for_path',
 	));
 });
 /**
@@ -51,10 +53,11 @@ add_action('rest_api_init', function () {
 *
 * @return WP_Error|WP_REST_Response
 */
-function get_post_for_url($data)
+function get_post_for_path($data)
 {
     $postId    = url_to_postid($data['url']);
-    $postType  = get_post_type($postId);
+	$postType  = get_post_type($postId);
+	error_log("$postId $postType");
     $controller = new WP_REST_Posts_Controller($postType);
     $request    = new WP_REST_Request('GET', "/wp/v2/{$postType}s/{$postId}");
     $request->set_url_params(array('id' => $postId));

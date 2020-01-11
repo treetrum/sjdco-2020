@@ -16,8 +16,13 @@ export const getGlobals = () => {
     return get(Config.globalAPI);
 };
 
+export const getProjects = () => {
+    return get(Config.projectsAPI);
+};
+
 export default {
     getPage,
     getOptions,
     getGlobals,
+    getProjects,
 };

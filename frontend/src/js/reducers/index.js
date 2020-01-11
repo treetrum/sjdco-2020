@@ -5,6 +5,7 @@ import initialFetchAll from "./initialFetchAll";
 import options from "./options";
 import ui from "./ui";
 import global from "./global";
+import projects from "./projects";
 
 export default combineReducers({
     page,
@@ -12,4 +13,5 @@ export default combineReducers({
     options,
     ui,
     global,
+    projects,
 });
