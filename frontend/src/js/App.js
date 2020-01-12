@@ -11,14 +11,8 @@ import Page from "./containers/Page";
 import Project from "./containers/Project";
 
 import NavBar from "./components/organisms/Navbar";
+import Footer from "./components/organisms/Footer";
 import NavLinks from "./components/molecules/NavLinks";
-
-const loadPageData = (nextState, replace, callback) => {
-    console.log({ nextState, replace });
-    setTimeout(() => {
-        callback();
-    }, 1000);
-};
 
 const App = () => {
     const dispatch = useDispatch();
@@ -62,6 +56,7 @@ const App = () => {
                 <Route exact path="/project/:projectSlug" component={Project} />
                 <Route exact path="/:path" component={Page} />
             </Switch>
+            <Footer />
         </Router>
     );
 };

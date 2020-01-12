@@ -1,0 +1,51 @@
+footer.primary {
+    padding: 48px 0 16px;
+    background-color: $background;
+    text-align: center;
+
+    .logo {
+        height: 100px;
+        margin-bottom: 24px;
+
+        img {
+            height: 100%;
+            display: block;
+            margin: 0 auto;
+        }
+    }
+
+    .social-links {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        li {
+            display: block;
+
+            a {
+                display: block;
+                padding: 1rem;
+                color: $white;
+                font-size: 1.5rem;
+                opacity: 0.25;
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+footer.secondary {
+    padding: 1rem 0;
+    background-color: darken($background, 5%);
+    text-align: center;
+
+    p {
+        margin: 0;
+        color: $white;
+        font-size: rem-calc(14px);
+        opacity: 0.25;
+    }
+}

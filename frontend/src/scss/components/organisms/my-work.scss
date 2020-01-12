@@ -1,17 +1,3 @@
-$paddingSmall: 24px * 2;
-$paddingLarge: 24px * 4;
-
-%padded {
-    padding: 48px 0;
-}
-
-%padded-double {
-    @extend %padded;
-    @include breakpoint(md) {
-        padding: 96px 0;
-    }
-}
-
 .my-work {
     @extend %padded-double;
     background-color: hsl(0, 0, 90%);

@@ -4,13 +4,15 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "start": "npm-run-all --parallel watch:twig watch:bundle",
-        "build": "npm-run-all clean compile:bundle build:twig css-paths",
+        "start": "npm-run-all --parallel watch:twig watch:bundle watch:iconfont",
+        "build": "npm-run-all clean compile:bundle build:twig build:iconfont css-paths",
         "clean": "rimraf dist/*",
         "watch:twig": "watch 'yarn run compile:twig' ./src/views --interval=0.1",
+        "watch:iconfont": "node ./scripts/iconfont.js -w",
         "watch:bundle": "webpack-dev-server --env dev",
         "compile:twig": "NODE_ENV=development node scripts/compile-twig.js",
         "build:twig": "NODE_ENV=production node scripts/compile-twig.js",
+        "build:iconfont": "node ./scripts/iconfont.js",
         "compile:bundle": "webpack -p --progress --env prod",
         "css-paths": "node scripts/replace-css-image-paths.js"
     },
@@ -47,6 +49,7 @@
         "lodash": "^4.17.15",
         "md5-file": "^4.0.0",
         "mini-css-extract-plugin": "^0.4.3",
+        "moment": "^2.24.0",
         "node-sass": "^4.9.3",
         "npm-run-all": "^4.1.3",
         "postcss-loader": "^3.0.0",
@@ -68,6 +71,7 @@
         "twig": "^1.12.0",
         "url-loader": "^1.1.1",
         "watch": "^1.0.2",
+        "webfonts-generator": "^0.4.0",
         "webpack": "^4.20.2",
         "webpack-cli": "^3.1.2",
         "webpack-dev-server": "^3.10.1"

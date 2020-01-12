@@ -39,3 +39,14 @@ $browser-context: 16;
     background-size: cover;
     background-position: center;
 }
+
+%padded {
+    padding: 48px 0;
+}
+
+%padded-double {
+    @extend %padded;
+    @include breakpoint(md) {
+        padding: 96px 0;
+    }
+}

@@ -3,8 +3,8 @@
 @import "constants/constants";
 @import "core/normalize";
 @import "core/global";
-@import "core/mixins";
 @import "core/grid";
+@import "core/mixins";
 @import "core/fonts";
 @import "core/typography";
 @import "core/iconfont";
@@ -22,6 +22,7 @@
 @import "components/organisms/hero-home";
 @import "components/organisms/parallax-icons";
 @import "components/organisms/my-work";
+@import "components/organisms/footer";
 
 // Included last so that these styles are guaranteed
 @import "core/animations";
