@@ -94,8 +94,11 @@ module.exports = env => {
             compress: true,
             port: 3000,
             historyApiFallback: true,
-            open: true,
+            open: false,
             hot: true,
+            host: "0.0.0.0",
+            disableHostCheck: true,
+            https: true,
         },
         plugins: [
             new MiniCssExtractPlugin({

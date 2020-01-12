@@ -15,6 +15,7 @@ import Footer from "./components/organisms/Footer";
 import NavLinks from "./components/molecules/NavLinks";
 
 import Favicon from "../images/favicon.png";
+import Config from "./constants/Config";
 
 const App = () => {
     const dispatch = useDispatch();
@@ -25,6 +26,20 @@ const App = () => {
 
     useEffect(() => {
         dispatch(actions.initialFetchAll());
+
+        const username = "ck_558afd1f565d5daf5ed6977917baf24c11ba0aa0";
+        const password = "cs_0f09791ac0f7ad7c66c524bce12e0d6512cbeccf";
+        fetch(Config.formsAPI, {
+            headers: {
+                Authorization: `Basic ${Buffer.from(
+                    `${username}:${password}`
+                ).toString("base64")}`,
+            },
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log("Got form response", data);
+            });
     }, []);
 
     const global = useSelector(state => state.global);
