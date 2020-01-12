@@ -1,0 +1,36 @@
+.hero-page {
+    display: flex;
+    position: relative;
+    align-items: center;
+    padding: 175px 0 75px;
+    color: $white;
+    overflow: hidden;
+    background-image: radial-gradient(
+        lighten($background, 2.5%),
+        darken($background, 2.5%)
+    );
+
+    .container {
+        position: relative;
+        z-index: 1;
+
+        .page-title {
+            margin-bottom: 2rem;
+            color: $white;
+            font-size: rem-calc(69px);
+            letter-spacing: -2px;
+        }
+
+        .subtitle {
+            margin-bottom: 2.5rem;
+            color: $white;
+            font-family: $font_mono;
+            font-size: rem-calc(22px);
+        }
+    }
+
+    &__title {
+        font-size: 43px;
+        margin-bottom: 24px;
+    }
+}

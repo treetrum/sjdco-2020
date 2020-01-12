@@ -1,7 +1,9 @@
 import React from "react";
 import Helmet from "react-helmet";
 import _ from "lodash";
+
 import usePageData from "../hooks/usePageData";
+import HeroPage from "../components/organisms/HeroPage";
 
 const Project = props => {
     const [loading, page] = usePageData(props.location.pathname);
@@ -13,11 +15,15 @@ const Project = props => {
                     <title>{page.title.rendered}</title>{" "}
                 </Helmet>
             ) : null}
-            <div className="container" style={{ marginTop: 200 }}>
-                <h1>{page.title.rendered}</h1>
-                <div
-                    dangerouslySetInnerHTML={{ __html: page.content.rendered }}
-                />
+            <HeroPage page={page} />
+            <div className="page-content">
+                <div className="container">
+                    <div
+                        dangerouslySetInnerHTML={{
+                            __html: page.content.rendered,
+                        }}
+                    />
+                </div>
             </div>
         </>
     );

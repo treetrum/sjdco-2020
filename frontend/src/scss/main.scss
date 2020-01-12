@@ -20,9 +20,11 @@
 @import "components/organisms/navbar";
 @import "components/organisms/mobile-menu";
 @import "components/organisms/hero-home";
+@import "components/organisms/hero-page";
 @import "components/organisms/parallax-icons";
 @import "components/organisms/my-work";
 @import "components/organisms/footer";
+@import "components/organisms/page-content";
 
 // Included last so that these styles are guaranteed
 @import "core/animations";
