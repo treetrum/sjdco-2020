@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useRef } from "react";
+
+import useParallax from "../../hooks/useParallax";
 
 import aperture from "../../../images/icons/aperture.svg";
 import checkbox from "../../../images/icons/checkbox.svg";
@@ -12,8 +14,10 @@ import musicalNote from "../../../images/icons/musical-note.svg";
 import pulse from "../../../images/icons/pulse.svg";
 
 const ParallaxIcons = () => {
+    const iconsRef = useRef(null);
+    useParallax(iconsRef);
     return (
-        <div className="parallax-icons">
+        <div className="parallax-icons" ref={iconsRef}>
             <div className="layer" data-depth="0.2">
                 <img alt="" src={aperture} className="aperture" />
             </div>

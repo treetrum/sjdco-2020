@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useRef } from "react";
+
+import useParallax from "../../hooks/useParallax";
 
 import SSVG from "../../../images/logos/S.svg";
 import DSVG from "../../../images/logos/D.svg";
 
 const ParallaxLetters = () => {
+    const letteresRef = useRef(null);
+    useParallax(letteresRef);
     return (
-        <div className="parallax-letters">
+        <div className="parallax-letters" ref={letteresRef}>
             <div className="layer s" data-depth="0.1">
                 <img alt="" src={SSVG} />
             </div>
