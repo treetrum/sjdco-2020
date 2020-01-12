@@ -1,0 +1,53 @@
+$paddingSmall: 24px * 2;
+$paddingLarge: 24px * 4;
+
+%padded {
+    padding: 48px 0;
+}
+
+%padded-double {
+    @extend %padded;
+    @include breakpoint(md) {
+        padding: 96px 0;
+    }
+}
+
+.my-work {
+    @extend %padded-double;
+    background-color: hsl(0, 0, 90%);
+
+    .container {
+        max-width: $grid_max_width * 0.75;
+    }
+
+    &__intro {
+        text-align: center;
+
+        .section-title {
+            margin-bottom: 48px;
+        }
+    }
+
+    &__projects {
+        display: grid;
+        margin-bottom: 24px;
+        grid-template-columns: 1fr;
+        grid-gap: 24px;
+    }
+
+    @include breakpoint(md) {
+        &__intro .section-title {
+            margin-bottom: 96px;
+        }
+
+        &__projects {
+            grid-gap: 24px * 2;
+        }
+    }
+
+    @include breakpoint(lg) {
+        &__projects {
+            grid-gap: 24px * 3;
+        }
+    }
+}

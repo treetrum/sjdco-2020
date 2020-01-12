@@ -8,6 +8,7 @@ import actions from "./actions";
 
 import Home from "./containers/Home";
 import Page from "./containers/Page";
+import Project from "./containers/Project";
 
 import NavBar from "./components/organisms/Navbar";
 import NavLinks from "./components/molecules/NavLinks";
@@ -58,6 +59,7 @@ const App = () => {
 
             <Switch>
                 <Route exact path="/" component={Home} />
+                <Route exact path="/project/:projectSlug" component={Project} />
                 <Route exact path="/:path" component={Page} />
             </Switch>
         </Router>

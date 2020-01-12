@@ -34,3 +34,8 @@ $browser-context: 16;
         color: $c2;
     }
 }
+
+%coverImage {
+    background-size: cover;
+    background-position: center;
+}

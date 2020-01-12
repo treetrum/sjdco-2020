@@ -1,0 +1,9 @@
+.section-title {
+    font-size: rem-calc(45px);
+    font-weight: 900;
+    letter-spacing: -2px;
+
+    @include breakpoint(md) {
+        font-size: rem-calc(52px);
+    }
+}

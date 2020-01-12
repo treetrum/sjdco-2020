@@ -63,3 +63,20 @@ function get_post_for_path($data)
     $request->set_url_params(array('id' => $postId));
     return $controller->get_item($request);
 }
+
+/**
+ * The filter is named rest_{post_type}_collection_params. So you need to hook a new filter for each 
+ * of the custom post types you need to sort.
+ * @link https://www.timrosswebdevelopment.com/wordpress-rest-api-post-order/
+ */
+// This enables the orderby=menu_order for Posts
+add_filter( 'rest_post_collection_params', 'filter_add_rest_orderby_params', 10, 1 );
+// And this for a custom post type called 'project'
+add_filter( 'rest_project_collection_params', 'filter_add_rest_orderby_params', 10, 1 );
+/**
+ * Add menu_order to the list of permitted orderby values
+ */
+function filter_add_rest_orderby_params( $params ) {
+	$params['orderby']['enum'][] = 'menu_order';
+	return $params;
+}

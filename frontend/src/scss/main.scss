@@ -13,11 +13,15 @@
 
 @import "components/atoms/button";
 @import "components/atoms/highlight";
+@import "components/atoms/section-title";
+
+@import "components/molecules/work-tile";
 
 @import "components/organisms/navbar";
 @import "components/organisms/mobile-menu";
 @import "components/organisms/hero-home";
 @import "components/organisms/parallax-icons";
+@import "components/organisms/my-work";
 
 // Included last so that these styles are guaranteed
 @import "core/animations";
