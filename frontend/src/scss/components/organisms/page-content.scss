@@ -3,7 +3,19 @@
 
     background-color: white;
 
+    &__project-content {
+        margin: 48px auto;
+        text-align: center;
+        max-width: 800px;
+    }
+
     @include breakpoint(md) {
         padding: 96px 0;
+
+        &__project-content {
+            @include breakpoint(md) {
+                margin: 96px auto;
+            }
+        }
     }
 }

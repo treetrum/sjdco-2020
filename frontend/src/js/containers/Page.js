@@ -19,7 +19,7 @@ const Page = props => {
             <div className="page-content">
                 <div className="container">
                     <div className="row">
-                        <div className="columns md-8">
+                        <div className="columns md-7">
                             <div
                                 dangerouslySetInnerHTML={{
                                     __html: page.content.rendered,

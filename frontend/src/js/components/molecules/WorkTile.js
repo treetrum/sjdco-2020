@@ -2,6 +2,8 @@ import React from "react";
 import { useSelector } from "react-redux";
 import PreloadLink from "../../shared/PreloadLink";
 
+import getFeaturedImagePath from "../../utils/getFeaturedImagePath";
+
 const WorkTile = ({ project }) => {
     const baseUrl = useSelector(state => state.global.home);
     return (
@@ -10,7 +12,7 @@ const WorkTile = ({ project }) => {
                 className="work-tile__thumb"
                 style={{
                     backgroundImage: `url(${baseUrl +
-                        project._embedded["wp:featuredmedia"][0].source_url})`,
+                        getFeaturedImagePath(project)})`,
                 }}
             />
             <div className="work-tile__content">

@@ -2,6 +2,8 @@ import React from "react";
 import ParallaxIcons from "../molecules/ParallaxIcons";
 import ParallaxLetters from "../molecules/ParallaxLetters";
 
+import PreloadLink from "../../shared/PreloadLink";
+
 const HeroHome = () => {
     return (
         <header className="hero-home">
@@ -19,12 +21,11 @@ const HeroHome = () => {
                     <span className="highlight-blue">graphic design</span>
                 </p>
                 <p className="buttons">
-                    <a className="button-green" href="/contact">
+                    <PreloadLink className="button-green" to="/contact">
                         About Me
-                    </a>
+                    </PreloadLink>
                 </p>
             </div>
-
             <div className="more-link">
                 <a href="#my-work">Some of my work</a>
             </div>

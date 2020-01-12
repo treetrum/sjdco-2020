@@ -57,11 +57,11 @@ function get_post_for_path($data)
 {
     $postId    = url_to_postid($data['url']);
 	$postType  = get_post_type($postId);
-	error_log("$postId $postType");
-    $controller = new WP_REST_Posts_Controller($postType);
-    $request    = new WP_REST_Request('GET', "/wp/v2/{$postType}s/{$postId}");
-    $request->set_url_params(array('id' => $postId));
-    return $controller->get_item($request);
+	$request = new WP_REST_Request('GET', "/wp/v2/{$postType}s/{$postId}");
+	$response = rest_do_request( $request );
+	$server = rest_get_server();
+	$data = $server->response_to_data( $response, true );
+	return $data;
 }
 
 /**

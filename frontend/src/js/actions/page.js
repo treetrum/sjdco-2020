@@ -49,7 +49,7 @@ export const fetchPage = (path = "/") => (dispatch, getState) => {
     }
     dispatch(fetchPageRequest());
     const pathToFetch = path === "/" ? "/home" : path;
-    return API.getPage(pathToFetch)
+    return API.getPage(`${pathToFetch}`)
         .takeAtLeast(500)
         .then(page => {
             dispatch(fetchPageSuccess(page, path));
