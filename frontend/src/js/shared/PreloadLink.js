@@ -10,7 +10,10 @@ const PreloadLink = ({ staticContext, history, ...props }) => {
         console.log(props);
         e.preventDefault();
         dispatch(actions.fetchPage(props.to)).then(() => {
-            history.push(props.to);
+            window.scrollTo(0, 0);
+            requestAnimationFrame(() => {
+                history.push(props.to);
+            });
         });
     };
     return <Link {...props} onClick={handleLinkClick} />;

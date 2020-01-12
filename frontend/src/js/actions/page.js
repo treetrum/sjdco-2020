@@ -5,19 +5,14 @@ import ActionTypes from "../constants/ActionTypes";
 import * as ui from "./ui";
 
 // Creates a new promise that automatically resolves after some timeout:
-Promise.delay = function(time) {
-    return new Promise((resolve, reject) => {
+const delay = time =>
+    new Promise(resolve => {
         setTimeout(resolve, time);
     });
-};
 
 // Throttle this promise to resolve no faster than the specified time:
 Promise.prototype.takeAtLeast = function(time) {
-    return new Promise((resolve, reject) => {
-        Promise.all([this, Promise.delay(time)]).then(([result]) => {
-            resolve(result);
-        }, reject);
-    });
+    return Promise.all([this, delay(time)]).then(([result]) => result);
 };
 
 const fetchPageRequest = () => ({
@@ -41,7 +36,7 @@ export const fetchPage = (path = "/") => (dispatch, getState) => {
     dispatch(ui.startLoading());
     if (page && !_.isEmpty(page)) {
         return Promise.resolve()
-            .takeAtLeast(500)
+            .takeAtLeast(750)
             .then(() => {
                 dispatch(fetchPageSuccess(page, path));
                 dispatch(ui.stopLoading());
@@ -50,7 +45,7 @@ export const fetchPage = (path = "/") => (dispatch, getState) => {
     dispatch(fetchPageRequest());
     const pathToFetch = path === "/" ? "/home" : path;
     return API.getPage(`${pathToFetch}`)
-        .takeAtLeast(500)
+        .takeAtLeast(750)
         .then(page => {
             dispatch(fetchPageSuccess(page, path));
             return page;
