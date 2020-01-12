@@ -1,7 +1,7 @@
 import Config from "../constants/Config";
 
-const get = url => {
-    return fetch(url).then(res => res.json());
+export const get = (url, config = {}) => {
+    return fetch(url, config).then(res => res.json());
 };
 
 export const getPage = (pagePath = "/home") => {

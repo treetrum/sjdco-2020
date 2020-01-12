@@ -30,3 +30,22 @@
 
 // Included last so that these styles are guaranteed
 @import "core/animations";
+
+.sfield {
+    margin: 24px 0;
+    &__label {
+        display: block;
+        font-size: 16px;
+    }
+    &__input {
+        margin: 0;
+        width: 100%;
+        display: block;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid hsl(0, 0, 80%);
+    }
+    &__error {
+        color: red;
+    }
+}

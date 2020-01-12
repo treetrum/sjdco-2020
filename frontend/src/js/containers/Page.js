@@ -4,6 +4,7 @@ import _ from "lodash";
 
 import usePageData from "../hooks/usePageData";
 import HeroPage from "../components/organisms/HeroPage";
+import GravityForm from "../components/organisms/GravityForm";
 
 const Page = props => {
     const [loading, page] = usePageData(props.location.pathname);
@@ -26,9 +27,13 @@ const Page = props => {
                                 }}
                             />
                         </div>
-                        {/* <div className="columns md-4">
-                            <p>CONTACT FORM HERE</p>
-                        </div> */}
+                        <div className="columns md-4">
+                            {page.acf.sidebar.form_id ? (
+                                <GravityForm
+                                    formId={page.acf.sidebar.form_id}
+                                />
+                            ) : null}
+                        </div>
                     </div>
                 </div>
             </div>

@@ -20,7 +20,7 @@
                 {
                     "key": "field_5e1aee3fac567",
                     "label": "Form ID",
-                    "name": "form",
+                    "name": "form_id",
                     "type": "text",
                     "instructions": "Optional form ID to show in the page sidebar",
                     "required": 0,
@@ -65,5 +65,5 @@
         "button_label": "",
         "appearances": ""
     },
-    "modified": 1578823285
+    "modified": 1578823359
 }
