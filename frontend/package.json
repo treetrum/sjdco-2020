@@ -68,6 +68,7 @@
         "rimraf": "^2.6.2",
         "sass-loader": "^7.1.0",
         "sjd-scss": "^1.0.2",
+        "smooth-scroll": "^16.1.1",
         "style-loader": "^0.23.1",
         "twig": "^1.12.0",
         "url-loader": "^1.1.1",

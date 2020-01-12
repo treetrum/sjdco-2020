@@ -8,6 +8,7 @@ import "intersection-observer";
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
+import SmoothScroll from "smooth-scroll";
 import ReduxStore from "./Store";
 
 import App from "./App";
@@ -18,3 +19,7 @@ ReactDOM.render(
     </Provider>,
     document.getElementById("app")
 );
+
+const scroll = new SmoothScroll('a[href*="#"]', {
+    speed: 500,
+});

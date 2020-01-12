@@ -9,6 +9,11 @@ const PreloadLink = ({ staticContext, history, ...props }) => {
     const handleLinkClick = e => {
         console.log(props);
         e.preventDefault();
+
+        if (window.location.pathname === props.to) {
+            return;
+        }
+
         dispatch(actions.fetchPage(props.to)).then(() => {
             window.scrollTo(0, 0);
             requestAnimationFrame(() => {

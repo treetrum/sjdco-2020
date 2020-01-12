@@ -14,6 +14,8 @@ import NavBar from "./components/organisms/Navbar";
 import Footer from "./components/organisms/Footer";
 import NavLinks from "./components/molecules/NavLinks";
 
+import Favicon from "../images/favicon.png";
+
 const App = () => {
     const dispatch = useDispatch();
     const loading = useSelector(
@@ -32,7 +34,9 @@ const App = () => {
             <Helmet
                 titleTemplate={`%s - ${global.name}`}
                 defaultTitle="Sam Davis - Front End Developer"
-            />
+            >
+                <link rel="shortcut icon" type="image/png" href={Favicon} />
+            </Helmet>
             <CSSTransition in={loading} timeout={350} classNames="loading">
                 <div className="page-loader loading-enter">
                     <div className="progress-bar">
