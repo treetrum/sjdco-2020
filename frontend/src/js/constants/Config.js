@@ -5,7 +5,7 @@ export default {
     projectsAPI: `${BASE_URL}/wp/v2/projects?_embed&order=asc&orderby=menu_order`,
     pageAPI: `${BASE_URL}/sjdco/v1/post-by-path`,
     optionsAPI: `${BASE_URL}/acf/v3/options/sjdco-options`,
-    submitFormAPI: `${BASE_URL}/gf/v2/entries`,
+    formEntriesAPI: `${BASE_URL}/gf/v2/entries`,
     formDataAPI: `${BASE_URL}/gf/v2/forms`,
     gravityAuth: {
         user: "ck_558afd1f565d5daf5ed6977917baf24c11ba0aa0",

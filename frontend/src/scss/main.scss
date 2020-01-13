@@ -33,19 +33,31 @@
 
 .sfield {
     margin: 24px 0;
+
     &__label {
         display: block;
-        font-size: 16px;
+        font-size: 14px;
+        font-weight: 700;
     }
+
     &__input {
         margin: 0;
         width: 100%;
         display: block;
-        padding: 10px;
+        padding: 10px 0;
         margin: 10px 0;
-        border: 1px solid hsl(0, 0, 80%);
+        border: 0;
+        border-bottom: 1px solid hsl(0, 0, 50%);
+        transition: 200ms ease all;
+
+        &:focus {
+            outline: none;
+            border-bottom-color: $green;
+        }
     }
+
     &__error {
         color: red;
+        font-size: 12px;
     }
 }

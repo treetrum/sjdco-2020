@@ -12,6 +12,11 @@ const uiReducer = (state = initialState, action) => {
                 ...state,
                 mobileMenuOpen: !state.mobileMenuOpen,
             };
+        case ActionTypes.CLOSE_MENU:
+            return {
+                ...state,
+                mobileMenuOpen: false,
+            };
         case ActionTypes.START_LOADING:
             return {
                 ...state,

@@ -47,6 +47,7 @@
         "treetrum/acf-component-field": "^2.0",
         "wpackagist-plugin/classic-editor": "^1.5",
         "wpackagist-plugin/acf-to-rest-api": "^3.1",
-        "wpackagist-plugin/relative-url": "^0.1.7"
+        "wpackagist-plugin/relative-url": "^0.1.7",
+        "wpackagist-plugin/wp-mail-smtp": "^1.8"
     }
 }
