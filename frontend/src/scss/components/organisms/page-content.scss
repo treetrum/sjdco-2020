@@ -4,9 +4,17 @@
     background-color: white;
 
     &__project-content {
-        margin: 48px auto;
-        text-align: center;
-        max-width: 800px;
+        // margin: 48px auto;
+        margin-top: 0;
+        // text-align: center;
+        // max-width: 800px;
+        padding-right: 50px;
+        margin-bottom: 48px;
+    }
+
+    &__title {
+        margin-bottom: 20px;
+        font-size: 28px;
     }
 
     @include breakpoint(md) {
@@ -14,7 +22,7 @@
 
         &__project-content {
             @include breakpoint(md) {
-                margin: 96px auto;
+                // margin: 96px auto;
             }
         }
     }

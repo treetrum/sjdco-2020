@@ -49,4 +49,18 @@ a {
     .section-title {
         margin-bottom: 24px;
     }
+
+    a:not([class*="button-"]) {
+        color: $text;
+        background-image: linear-gradient($text, $text);
+        background-repeat: no-repeat;
+        background-position: 0px 100%;
+        background-size: 100% 2px;
+        transition: 200ms ease all;
+
+        &:hover {
+            color: $green;
+            background-size: 100% 100%;
+        }
+    }
 }

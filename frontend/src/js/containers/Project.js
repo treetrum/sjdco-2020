@@ -22,31 +22,43 @@ const Project = props => {
             <HeroPage page={page} />
             <div className="page-content">
                 <div className="container">
-                    {getFeaturedImagePath(page) ? (
-                        <div className="featured-project-image">
-                            <img
-                                src={baseUrl + getFeaturedImagePath(page)}
-                                alt=""
-                            />
+                    <div className="row">
+                        <div className="columns md-4">
+                            <div className="page-content__project-content rte">
+                                <h3 className="page-content__title">
+                                    About the project
+                                </h3>
+                                <div
+                                    dangerouslySetInnerHTML={{
+                                        __html: page.content.rendered,
+                                    }}
+                                />
+                            </div>
                         </div>
-                    ) : null}
-                    <div className="page-content__project-content rte">
-                        <h3 className="section-title">About</h3>
-                        <div
-                            dangerouslySetInnerHTML={{
-                                __html: page.content.rendered,
-                            }}
-                        />
-                    </div>
-                    <div className="project-gallery-images">
-                        {page.acf.gallery_images.map(({ image }, index) => (
-                            <img
-                                className="project-gallery-image"
-                                key={index}
-                                src={baseUrl + image.url}
-                                alt={image.alt}
-                            />
-                        ))}
+                        <div className="columns md-8">
+                            {getFeaturedImagePath(page) ? (
+                                <div className="featured-project-image">
+                                    <img
+                                        src={
+                                            baseUrl + getFeaturedImagePath(page)
+                                        }
+                                        alt=""
+                                    />
+                                </div>
+                            ) : null}
+                            <div className="project-gallery-images">
+                                {page.acf.gallery_images.map(
+                                    ({ image }, index) => (
+                                        <img
+                                            className="project-gallery-image"
+                                            key={index}
+                                            src={baseUrl + image.url}
+                                            alt={image.alt}
+                                        />
+                                    )
+                                )}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
