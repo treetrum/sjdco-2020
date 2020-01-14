@@ -80,3 +80,6 @@ function filter_add_rest_orderby_params( $params ) {
 	$params['orderby']['enum'][] = 'menu_order';
 	return $params;
 }
+
+add_theme_support( 'title-tag' );
+add_theme_support( 'post-thumbnails' );

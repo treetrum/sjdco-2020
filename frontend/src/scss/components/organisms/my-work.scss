@@ -3,7 +3,8 @@
     background-color: hsl(0, 0, 90%);
 
     .container {
-        max-width: $grid_max_width * 0.75;
+        // max-width: $grid_max_width * 0.75;
+        max-width: 1600px;
     }
 
     &__intro {
@@ -11,29 +12,41 @@
 
         .section-title {
             margin-bottom: 48px;
+            color: $background;
         }
     }
 
     &__projects {
-        display: grid;
-        margin-bottom: 24px;
-        grid-template-columns: 1fr;
-        grid-gap: 24px;
+        $gutter: 0;
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: -$gutter;
+        margin-right: -$gutter;
+
+        &__single {
+            padding: 0 $gutter ($gutter * 2);
+            margin-bottom: 20px;
+            width: (100%)/1;
+        }
     }
 
-    @include breakpoint(md) {
+    @include breakpoint(sm) {
         &__intro .section-title {
             margin-bottom: 96px;
         }
-
         &__projects {
-            grid-gap: 24px * 2;
+            &__single {
+                width: (100%)/2;
+                margin-bottom: 0;
+            }
         }
     }
 
     @include breakpoint(lg) {
         &__projects {
-            grid-gap: 24px * 3;
+            &__single {
+                width: (100%)/3;
+            }
         }
     }
 }
