@@ -3,7 +3,7 @@
 !/wp-content
 /wp-content/*
 !/wp-content/themes
-!/nginx-proxy-manager
+nginx-proxy-manager
 !.gitignore
 
 !/.htaccess
@@ -13,5 +13,3 @@
 !/docker-compose.yml
 
 **/*.log
-nginx-proxy-manager/config.json
-nginx-proxy-manager/data/**/*
