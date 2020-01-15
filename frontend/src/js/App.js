@@ -15,7 +15,7 @@ import NavBar from "./components/organisms/Navbar";
 import Footer from "./components/organisms/Footer";
 import NavLinks from "./components/molecules/NavLinks";
 
-// import Favicon from "../images/favicon.png";
+import Favicon from "../images/favicon.png";
 import Config from "./constants/Config";
 
 const App = () => {
@@ -38,7 +38,7 @@ const App = () => {
                 titleTemplate={`%s - ${global.name}`}
                 defaultTitle="Sam Davis - Front End Developer"
             >
-                {/* <link rel="shortcut icon" type="image/png" href={Favicon} /> */}
+                <link rel="shortcut icon" type="image/png" href={Favicon} />
             </Helmet>
             <CSSTransition in={loading} timeout={350} classNames="loading">
                 <div className="page-loader loading-enter">
