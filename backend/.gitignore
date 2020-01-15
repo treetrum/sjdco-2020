@@ -1,0 +1,15 @@
+/*
+/*/
+!/wp-content
+/wp-content/*
+!/wp-content/themes
+!/nginx-proxy-manager
+!.gitignore
+
+!/.htaccess
+!/auth.json
+!/composer.json
+!/composer.lock
+!/docker-compose.yml
+
+**/*.log
