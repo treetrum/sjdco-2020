@@ -16,6 +16,13 @@ services:
     depends_on:
       - db
 
+  frontend:
+    image: "bitnami/apache:latest"
+    ports:
+      - "5000:8080"
+    volumes:
+      - ../frontend/build:/app
+
   db:
     image: mysql:5.7
     volumes:

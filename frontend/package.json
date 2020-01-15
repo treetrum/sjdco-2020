@@ -5,8 +5,8 @@
     "main": "index.js",
     "scripts": {
         "start": "npm-run-all --parallel watch:twig watch:bundle watch:iconfont",
-        "build": "npm-run-all clean compile:bundle build:twig build:iconfont css-paths",
-        "clean": "rimraf dist/*",
+        "build": "npm-run-all clean build:iconfont compile:bundle build:twig css-paths",
+        "clean": "rimraf build/* dist/*",
         "watch:twig": "watch 'yarn run compile:twig' ./src/views --interval=0.1",
         "watch:iconfont": "node ./scripts/iconfont.js -w",
         "watch:bundle": "webpack-dev-server --env dev",
@@ -14,7 +14,8 @@
         "build:twig": "NODE_ENV=production node scripts/compile-twig.js",
         "build:iconfont": "node ./scripts/iconfont.js",
         "compile:bundle": "webpack -p --progress --env prod",
-        "css-paths": "node scripts/replace-css-image-paths.js"
+        "css-paths": "node scripts/replace-css-image-paths.js",
+        "postbuild": "cp -r dist/* build/ && cp .htaccess build/.htaccess"
     },
     "keywords": [],
     "author": "",
