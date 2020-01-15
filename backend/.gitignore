@@ -13,3 +13,4 @@
 !/docker-compose.yml
 
 **/*.log
+nginx-proxy-manager/config.json
