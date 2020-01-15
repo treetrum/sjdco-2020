@@ -25,4 +25,4 @@ jobs:
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         SLACK_TITLE: 'Pushed SJDco Successfully'
-        SLACK_MESSAGE: 'The repo ${{.secretsGITHUB_REPOSITORY}} was pushed successfully to ${{secrets.HOST}}'
+        SLACK_MESSAGE: 'The repo ${{secrets.GITHUB_REPOSITORY}} was pushed successfully to ${{secrets.HOST}}'
