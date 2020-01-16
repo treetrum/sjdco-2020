@@ -4,7 +4,7 @@ import { Link, withRouter } from "react-router-dom";
 
 import actions from "../actions";
 
-const PreloadLink = ({ staticContext, history, ...props }) => {
+const PreloadLink = ({ staticContext, history, location, match, ...props }) => {
     const dispatch = useDispatch();
     const handleLinkClick = e => {
         console.log(props);

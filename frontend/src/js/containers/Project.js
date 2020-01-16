@@ -12,6 +12,7 @@ const Project = props => {
     const [loading, page] = usePageData(props.location.pathname);
     const baseUrl = useSelector(state => state.global.home);
     if (loading || _.isEmpty(page)) return null;
+    const galleryImages = _.get(page, ["acf", "gallery_images"], []) || [];
     return (
         <>
             {page.title ? (
@@ -47,16 +48,14 @@ const Project = props => {
                                 </div>
                             ) : null}
                             <div className="project-gallery-images">
-                                {page.acf.gallery_images.map(
-                                    ({ image }, index) => (
-                                        <img
-                                            className="project-gallery-image"
-                                            key={index}
-                                            src={baseUrl + image.url}
-                                            alt={image.alt}
-                                        />
-                                    )
-                                )}
+                                {galleryImages.map(({ image }, index) => (
+                                    <img
+                                        className="project-gallery-image"
+                                        key={index}
+                                        src={baseUrl + image.url}
+                                        alt={image.alt}
+                                    />
+                                ))}
                             </div>
                         </div>
                     </div>

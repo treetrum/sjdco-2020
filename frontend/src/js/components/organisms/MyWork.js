@@ -13,8 +13,11 @@ const MyWork = () => {
                 </div>
                 <div className="my-work__projects">
                     {projects.map(project => (
-                        <div className="my-work__projects__single">
-                            <WorkTile project={project} key={project.id} />
+                        <div
+                            key={project.id}
+                            className="my-work__projects__single"
+                        >
+                            <WorkTile project={project} />
                         </div>
                     ))}
                 </div>

@@ -1,6 +1,7 @@
-const BASE_URL = process.env.NODE_ENV === 'production' 
-    ? "https://wp.sjd.co/wp-json" 
-    : "https://wp.sjdco.test/wp-json";
+const BASE_URL =
+    process.env.NODE_ENV === "production"
+        ? "https://wp.sjd.co/wp-json"
+        : "https://wp.sjdco.test/wp-json";
 
 export default {
     globalAPI: `${BASE_URL}`,

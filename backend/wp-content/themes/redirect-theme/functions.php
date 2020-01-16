@@ -83,3 +83,45 @@ function filter_add_rest_orderby_params( $params ) {
 
 add_theme_support( 'title-tag' );
 add_theme_support( 'post-thumbnails' );
+
+// Callback function to insert 'styleselect' into the $buttons array
+function my_mce_buttons_2( $buttons ) {
+	array_unshift( $buttons, 'styleselect' );
+	return $buttons;
+}
+// Register our callback to the appropriate filter
+add_filter( 'mce_buttons_2', 'my_mce_buttons_2' );
+
+add_filter( 'tiny_mce_before_init', function($init_array) {
+
+    // Define the style_formats array
+	$style_formats = array(
+		// Each array child is a format with it's own settings
+		array(
+			'title' => 'Lead Paragraph',
+			'selector' => 'p',
+			'classes' => 'lead'
+        ),
+        array(
+			'title' => 'Button (Blue)',
+			'selector' => 'a',
+			'classes' => 'button-blue'
+        ),
+        array(
+			'title' => 'Button (Green)',
+			'selector' => 'a',
+			'classes' => 'button-green'
+		),
+		array(
+			'title' => 'Button (Purple)',
+			'selector' => 'a',
+			'classes' => 'button-purple'
+        )
+    );
+
+	// Insert the array, JSON ENCODED, into 'style_formats'
+	$init_array['style_formats'] = json_encode( $style_formats );
+
+	return $init_array;
+
+});

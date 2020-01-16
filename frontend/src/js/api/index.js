@@ -1,6 +1,6 @@
 import Config from "../constants/Config";
 
-export const get = (url, config = {}) => {
+export const get = (url = "", config = {}) => {
     return fetch(url, config).then(res => res.json());
 };
 
