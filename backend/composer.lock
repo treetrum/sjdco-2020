@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5f13fd4c90a57b5105df17752ff2d9ed",
+    "content-hash": "8884894b470409ba787658a3fa31ab10",
     "packages": [
         {
             "name": "composer/installers",
@@ -232,6 +232,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/relative-url/"
+        },
+        {
+            "name": "wpackagist-plugin/tiny-compress-images",
+            "version": "3.2.1",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/tiny-compress-images/",
+                "reference": "tags/3.2.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/tiny-compress-images.3.2.1.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/tiny-compress-images/"
         },
         {
             "name": "wpackagist-plugin/wp-mail-smtp",

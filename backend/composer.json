@@ -49,6 +49,7 @@
         "wpackagist-plugin/acf-to-rest-api": "^3.1",
         "wpackagist-plugin/relative-url": "^0.1.7",
         "wpackagist-plugin/wp-mail-smtp": "^1.8",
-        "wpackagist-plugin/wp-nested-pages": "^3.1"
+        "wpackagist-plugin/wp-nested-pages": "^3.1",
+        "wpackagist-plugin/tiny-compress-images": "^3.2"
     }
 }
