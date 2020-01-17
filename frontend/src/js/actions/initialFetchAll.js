@@ -24,6 +24,7 @@ export const initialFetchAll = () => dispatch => {
         dispatch(projects.fetchProjects()),
         dispatch(page.fetchPage(window.location.pathname)),
     ])
+        .takeAtLeast(1200)
         .then(() => {
             dispatch(initialFetchAllSuccess());
         })

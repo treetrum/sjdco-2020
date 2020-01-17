@@ -63,11 +63,12 @@ const App = () => {
             >
                 <link rel="shortcut icon" type="image/png" href={Favicon} />
             </Helmet>
-            <CSSTransition in={loading} timeout={350} classNames="loading">
-                <div className="page-loader loading-enter">
-                    <div className="progress-bar">
-                        <div className="inner" />
-                    </div>
+            <CSSTransition in={loading} timeout={1200} classNames="loading">
+                <div className="loader loading-enter">
+                    <div className="loader-1" />
+                    <div className="loader-2" />
+                    <div className="loader-3" />
+                    <div className="loader-4" />
                 </div>
             </CSSTransition>
 

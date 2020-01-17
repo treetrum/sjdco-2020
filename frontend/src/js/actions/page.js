@@ -36,7 +36,7 @@ export const fetchPage = (path = "/") => (dispatch, getState) => {
     dispatch(ui.startLoading());
     if (page && !_.isEmpty(page)) {
         return Promise.resolve()
-            .takeAtLeast(750)
+            .takeAtLeast(1200)
             .then(() => {
                 dispatch(fetchPageSuccess(page, path));
                 dispatch(ui.stopLoading());
@@ -45,7 +45,7 @@ export const fetchPage = (path = "/") => (dispatch, getState) => {
     dispatch(fetchPageRequest());
     const pathToFetch = path === "/" ? "/home" : path;
     return API.getPage(`${pathToFetch}`)
-        .takeAtLeast(750)
+        .takeAtLeast(1200)
         .then(page => {
             dispatch(fetchPageSuccess(page, path));
             return page;
