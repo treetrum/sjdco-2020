@@ -10,11 +10,15 @@ module.exports = env => {
     const isProduction = env === "prod";
     return {
         mode: "development",
-        devtool: env === "prod" ? "" : "source-map",
-        entry: path.join(__dirname, "./src/js/index.js"),
+        devtool: isProduction ? "" : "source-map",
+        entry: {
+            bundle: path.join(__dirname, "./src/js/index.js"),
+            main: path.join(__dirname, "./src/scss/main.scss"),
+            editor: path.join(__dirname, "./src/scss/editor.scss"),
+        },
         output: {
             path: path.join(__dirname, "./dist"),
-            filename: "js/bundle.js",
+            filename: "js/[name].js",
             publicPath: "/",
         },
         module: {

@@ -1,22 +1,44 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { CSSTransition } from "react-transition-group";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Switch, Route, useLocation } from "react-router-dom";
 import Helmet from "react-helmet";
-import { loadReCaptcha } from "react-recaptcha-google";
+import dist, { loadReCaptcha } from "react-recaptcha-google";
 
 import actions from "./actions";
 
 import Home from "./containers/Home";
 import Page from "./containers/Page";
-import Project from "./containers/Project";
 
 import NavBar from "./components/organisms/Navbar";
 import Footer from "./components/organisms/Footer";
 import NavLinks from "./components/molecules/NavLinks";
 
 import Favicon from "../images/favicon.png";
-import Config from "./constants/Config";
+
+const LockBodyScroll = () => {
+    const location = useLocation();
+    useEffect(() => {
+        const { body } = document;
+        if (location.pathname.includes("/project/")) {
+            window.sjdco_scroll_distance = window.scrollY;
+            requestAnimationFrame(() => {
+                body.classList.add("noscroll");
+                body.style.top = `-${window.sjdco_scroll_distance}px`;
+            });
+        } else {
+            requestAnimationFrame(() => {
+                body.classList.remove("noscroll");
+                body.style.top = null;
+                if (window.sjdco_scroll_distance) {
+                    window.scroll(null, window.sjdco_scroll_distance);
+                    window.sjdco_scroll_distance = 0;
+                }
+            });
+        }
+    }, [location.pathname]);
+    return null;
+};
 
 const App = () => {
     const dispatch = useDispatch();
@@ -33,7 +55,8 @@ const App = () => {
     const global = useSelector(state => state.global);
 
     return (
-        <Router>
+        <>
+            <LockBodyScroll />
             <Helmet
                 titleTemplate={`%s - ${global.name}`}
                 defaultTitle="Sam Davis - Front End Developer"
@@ -60,12 +83,12 @@ const App = () => {
 
             <Switch>
                 <Route exact path="/" component={Home} />
-                <Route exact path="/project/:projectSlug" component={Project} />
+                <Route exact path="/project/:projectSlug" component={Home} />
                 <Route exact path="/:path" component={Page} />
             </Switch>
 
             <Footer />
-        </Router>
+        </>
     );
 };
 

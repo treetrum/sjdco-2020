@@ -125,3 +125,11 @@ add_filter( 'tiny_mce_before_init', function($init_array) {
 	return $init_array;
 
 });
+
+/**
+* Registers an editor stylesheet for the theme.
+*/
+function wpdocs_theme_add_editor_styles() {
+    add_editor_style(get_template_directory_uri() . '/build/css/editor.css?v=' . md5_file(get_template_directory() . '/build/css/editor.css'));
+}
+add_action( 'admin_init', 'wpdocs_theme_add_editor_styles' );

@@ -1,5 +1,5 @@
 {
-    "name": "argyle-annual-report",
+    "name": "sjdco-2020",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
@@ -15,7 +15,7 @@
         "build:iconfont": "node ./scripts/iconfont.js",
         "compile:bundle": "webpack -p --progress --env prod",
         "css-paths": "node scripts/replace-css-image-paths.js",
-        "postbuild": "rimraf build/* && cp -r dist/* build/ && cp .htaccess build/.htaccess"
+        "postbuild": "rimraf build/* && cp -r dist/* build/ && cp .htaccess build/.htaccess && mkdir -p ../backend/wp-content/themes/redirect-theme/build/ && cp -r build/* ../backend/wp-content/themes/redirect-theme/build/"
     },
     "keywords": [],
     "author": "",

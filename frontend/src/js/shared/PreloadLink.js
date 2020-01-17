@@ -16,8 +16,8 @@ const PreloadLink = ({ staticContext, history, location, match, ...props }) => {
 
         dispatch(actions.closeMenu());
         dispatch(actions.fetchPage(props.to)).then(() => {
-            window.scrollTo(0, 0);
             requestAnimationFrame(() => {
+                window.scrollTo(0, 0);
                 history.push(props.to);
             });
         });
