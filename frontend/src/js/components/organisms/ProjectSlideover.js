@@ -29,10 +29,10 @@ const ProjectSlideover = ({ props, projectSlug }) => {
                     history.push("/");
                 }}
             />
+            <Link to="/" className="project-slideover__back">
+                <i className="icon icon-arrow-left" />
+            </Link>
             <div className="project-slideover__main">
-                <Link to="/" className="project-slideover__back">
-                    Back
-                </Link>
                 <div
                     className="project-slideover__thumb"
                     style={{ backgroundImage: `url(${featuredImage})` }}
