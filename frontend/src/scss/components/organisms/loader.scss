@@ -54,6 +54,7 @@
         &-done,
         &-active {
             transition: $speed ($base_delay * 0) ease all;
+            transform: translateX(0);
             .loader-1 {
                 transition: $speed ($base_delay * 1) ease all;
                 transform: translateX(0);
