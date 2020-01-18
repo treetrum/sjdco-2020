@@ -50,9 +50,6 @@ const ProjectSlideover = ({ props, projectSlug }) => {
                     <h3 className="project-slideover__title">
                         {project.title.rendered}
                     </h3>
-                    <div className="project-slideover__subtitle">
-                        {project.acf.subtitle}
-                    </div>
                     <div
                         className="rte"
                         dangerouslySetInnerHTML={{
