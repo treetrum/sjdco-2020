@@ -17,8 +17,8 @@ const HeroHome = () => {
                         front-end developer
                     </span>{" "}
                     <br />
-                    with a background in{" "}
-                    <span className="highlight-blue">graphic design</span>
+                    with over{" "}
+                    <span className="highlight-blue">6 years experience</span>
                 </p>
                 <p className="buttons">
                     <PreloadLink className="button-green" to="/contact">
