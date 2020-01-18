@@ -35,7 +35,7 @@
     }
 
     &__content {
-        padding: 50px;
+        padding: 40px 30px;
     }
 
     &__title {
@@ -53,17 +53,46 @@
 
     &__back {
         position: absolute;
-        top: 0;
-        left: 0;
-        padding: 32px;
+        top: 30px;
+        left: 30px;
         z-index: 1;
         color: white;
-        font-size: 32px;
         transform: translateZ(0);
+
+        background-color: rgba(black, 0.5);
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        border-radius: 50px;
+        border: 2px solid white;
 
         &:hover {
             color: $green;
-            transform: translateX(-5px) translateZ(0);
+        }
+    }
+
+    @include breakpoint(md) {
+        &__content {
+            padding: 50px;
+        }
+
+        &__back {
+            top: 0;
+            left: 0;
+            padding: 32px;
+            border-radius: 0;
+            border: 0;
+            background-color: transparent;
+            font-size: 32px;
+            width: auto;
+            height: auto;
+
+            &:hover {
+                transform: translateX(-5px) translateZ(0);
+            }
         }
     }
 }

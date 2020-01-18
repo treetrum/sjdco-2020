@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { CSSTransition } from "react-transition-group";
 import { Switch, Route, useLocation } from "react-router-dom";
 import Helmet from "react-helmet";
-import dist, { loadReCaptcha } from "react-recaptcha-google";
+import { loadReCaptcha } from "react-recaptcha-google";
 
 import actions from "./actions";
 

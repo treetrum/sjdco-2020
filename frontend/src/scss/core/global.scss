@@ -15,7 +15,7 @@ img {
 }
 
 body {
-    background-color: $background;
+    background-color: darken($background, 5%);
 
     &.noscroll {
         bottom: 0;
