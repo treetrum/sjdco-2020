@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useParams, useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { CSSTransition } from "react-transition-group";
@@ -13,6 +13,17 @@ const ProjectSlideover = ({ props, projectSlug }) => {
         state.projects.projects.find(p => p.slug === projectSlug)
     );
     const baseUrl = useSelector(state => state.global.home);
+    const handleKeyDown = event => {
+        if (event.key === "Escape") {
+            history.push("/");
+        }
+    };
+    const handleOverlayClick = () => {
+        history.push("/");
+    };
+    useEffect(() => {
+        window.addEventListener("keydown", handleKeyDown);
+    }, []);
     if (!project) {
         return null;
     }
@@ -25,9 +36,7 @@ const ProjectSlideover = ({ props, projectSlug }) => {
             <button
                 type="button"
                 className="project-slideover__overlay"
-                onClick={() => {
-                    history.push("/");
-                }}
+                onClick={handleOverlayClick}
             />
             <Link to="/" className="project-slideover__back">
                 <i className="icon icon-arrow-left" />
