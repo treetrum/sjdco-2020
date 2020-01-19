@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { CSSTransition } from "react-transition-group";
-import { Switch, Route, useLocation } from "react-router-dom";
+import { Switch, Route, useLocation, Redirect } from "react-router-dom";
 import Helmet from "react-helmet";
 import { loadReCaptcha } from "react-recaptcha-google";
 
@@ -84,6 +84,13 @@ const App = () => {
 
             <Switch>
                 <Route exact path="/" component={Home} />
+                <Route
+                    path="/wp-admin"
+                    component={() => {
+                        window.location.href = "https://wp.sjd.co/wp-admin";
+                        return null;
+                    }}
+                />
                 <Route exact path="/project/:projectSlug" component={Home} />
                 <Route exact path="/:path" component={Page} />
             </Switch>

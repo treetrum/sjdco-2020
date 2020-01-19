@@ -3,10 +3,12 @@ import ParallaxIcons from "../molecules/ParallaxIcons";
 import ParallaxLetters from "../molecules/ParallaxLetters";
 
 import PreloadLink from "../../shared/PreloadLink";
+import useWindowHeight from "../../hooks/useWindowHeight";
 
 const HeroHome = () => {
+    const minHeight = useWindowHeight();
     return (
-        <header className="hero-home">
+        <header className="hero-home" style={{ minHeight: `${minHeight}px` }}>
             <ParallaxIcons />
             <ParallaxLetters />
             <div className="container">
