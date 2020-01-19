@@ -26,6 +26,7 @@
         height: 100%;
         box-shadow: 0 0 50px rgba(black, 0.2);
         overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     &__thumb {
