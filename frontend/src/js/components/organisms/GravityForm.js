@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import _ from "lodash";
 import { ReCaptcha } from "react-recaptcha-google";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import PropTypes from "prop-types";
 
 import { getFormData, addFormEntry, sendNotification } from "../../api/forms";
 
@@ -26,11 +27,13 @@ const GravityForm = ({ formId }) => {
         const valueKeys = Object.keys(values);
         valueKeys.forEach(fieldId => {
             const value = values[fieldId];
-            const field = formData.fields.find(f => f.id == fieldId);
+            const field = formData.fields.find(
+                f => String(f.id) === String(fieldId)
+            );
             if (field.isRequired && !value) {
                 errors[fieldId] = "Required";
             } else if (
-                field.type == "email" &&
+                field.type === "email" &&
                 !/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/i.test(
                     value
                 )
@@ -119,6 +122,10 @@ const GravityForm = ({ formId }) => {
             )}
         </Formik>
     );
+};
+
+GravityForm.propTypes = {
+    formId: PropTypes.string.isRequired,
 };
 
 export default GravityForm;

@@ -6,8 +6,8 @@ import usePageData from "../hooks/usePageData";
 import HeroPage from "../components/organisms/HeroPage";
 import GravityForm from "../components/organisms/GravityForm";
 
-const Page = props => {
-    const [loading, page] = usePageData(props.location.pathname);
+const Page = () => {
+    const [loading, page] = usePageData();
     if (loading || _.isEmpty(page)) return null;
     return (
         <>

@@ -8,8 +8,8 @@ import HeroPage from "../components/organisms/HeroPage";
 
 import getFeaturedImagePath from "../utils/getFeaturedImagePath";
 
-const Project = props => {
-    const [loading, page] = usePageData(props.location.pathname);
+const Project = () => {
+    const [loading, page] = usePageData();
     const baseUrl = useSelector(state => state.global.home);
     if (loading || _.isEmpty(page)) return null;
     const galleryImages = _.get(page, ["acf", "gallery_images"], []) || [];

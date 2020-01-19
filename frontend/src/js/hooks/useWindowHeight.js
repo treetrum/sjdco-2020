@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 /*
  * Returns the up to date window.innerHeight. If on a touch device - window.innerHeight

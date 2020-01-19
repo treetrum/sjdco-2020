@@ -1,13 +1,12 @@
 import React, { useEffect } from "react";
-import { Link, useParams, useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { CSSTransition } from "react-transition-group";
+import PropTypes from "prop-types";
 
 import Helmet from "react-helmet";
 import getFeaturedImagePath from "../../utils/getFeaturedImagePath";
 
-const ProjectSlideover = ({ props, projectSlug }) => {
-    console.log({ props });
+const ProjectSlideover = ({ projectSlug }) => {
     const history = useHistory();
     const project = useSelector(state =>
         state.projects.projects.find(p => p.slug === projectSlug)
@@ -60,6 +59,10 @@ const ProjectSlideover = ({ props, projectSlug }) => {
             </div>
         </div>
     );
+};
+
+ProjectSlideover.propTypes = {
+    projectSlug: PropTypes.string.isRequired,
 };
 
 export default ProjectSlideover;

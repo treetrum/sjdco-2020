@@ -1,8 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
-import PreloadLink from "../../shared/PreloadLink";
 import getFeaturedImagePath from "../../utils/getFeaturedImagePath";
 
 const WorkTile = ({ project }) => {
@@ -26,6 +26,15 @@ const WorkTile = ({ project }) => {
             </div>
         </Link>
     );
+};
+
+WorkTile.propTypes = {
+    project: PropTypes.shape({
+        title: PropTypes.object.isRequired,
+        acf: PropTypes.object.isRequired,
+        link: PropTypes.string.isRequired,
+        id: PropTypes.string.isRequired,
+    }).isRequired,
 };
 
 export default WorkTile;

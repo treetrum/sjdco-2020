@@ -1,8 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link, withRouter } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import actions from "../../actions";
 import PreloadLink from "../../shared/PreloadLink";
 
 const MenuLink = ({ link }) => {
