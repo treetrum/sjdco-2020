@@ -6,6 +6,8 @@ import usePageData from "../hooks/usePageData";
 import HeroPage from "../components/organisms/HeroPage";
 import GravityForm from "../components/organisms/GravityForm";
 
+import * as pageActions from "../actions/page";
+
 const Page = () => {
     const [loading, page] = usePageData();
     if (loading || _.isEmpty(page)) return null;
@@ -39,6 +41,10 @@ const Page = () => {
             </div>
         </>
     );
+};
+
+Page.preload = ({ passed: { dispatch }, location }) => {
+    return dispatch(pageActions.fetchPage(location.pathname));
 };
 
 export default Page;

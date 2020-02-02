@@ -26,6 +26,9 @@ function add_post_types() {
 		'has_archive' => 'projects',
 		'hierarchical' => false,
 		"show_in_rest" => true,
+		"show_in_graphql" => true,
+		"graphql_single_name" => strtolower($singular),
+		"graphql_plural_name" => strtolower($plural),
 		"rest_base" => "projects"
 	);
 	register_post_type( 'project', $args );
@@ -36,7 +39,8 @@ add_action( 'init', 'add_post_types' );
 if( function_exists('acf_add_options_page') ) {
 	acf_add_options_page([
 		'page_title' => 'SJDco Options',
-		'post_id' => 'sjdco-options'
+		'post_id' => 'sjdco-options',
+		"show_in_graphql" => true
 	]);
 }
 

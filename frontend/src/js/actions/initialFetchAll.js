@@ -21,10 +21,8 @@ export const initialFetchAll = () => dispatch => {
     return Promise.all([
         dispatch(options.fetchOptions()),
         dispatch(global.fetchGlobal()),
-        dispatch(projects.fetchProjects()),
-        dispatch(page.fetchPage(window.location.pathname)),
     ])
-        .takeAtLeast(1200)
+        .takeAtLeast(1500)
         .then(() => {
             dispatch(initialFetchAllSuccess());
         })

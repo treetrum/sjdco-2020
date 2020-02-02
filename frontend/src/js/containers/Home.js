@@ -2,19 +2,25 @@ import React from "react";
 
 import HeroHome from "../components/organisms/HeroHome";
 import MyWork from "../components/organisms/MyWork";
-import usePageData from "../hooks/usePageData";
+import Actions from "../actions";
 
 const Home = () => {
-    const [loading] = usePageData();
-    if (loading) {
-        return null;
-    }
     return (
         <>
             <HeroHome />
             <MyWork />
         </>
     );
+};
+
+Home.preload = ({ passed: { dispatch, state }, location }) => {
+    if (state.projects.projects.length > 0 && location.pathname !== "/") {
+        return null;
+    }
+    return Promise.all([
+        dispatch(Actions.fetchProjects()),
+        dispatch(Actions.fetchPage("/")),
+    ]);
 };
 
 export default Home;

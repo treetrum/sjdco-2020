@@ -1,59 +1,24 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { CSSTransition } from "react-transition-group";
-import { Switch, Route, useLocation, Redirect } from "react-router-dom";
+import { useSelector } from "react-redux";
 import Helmet from "react-helmet";
 import { loadReCaptcha } from "react-recaptcha-google";
+import { renderRoutes } from "react-router-config";
 
-import actions from "./actions";
-
-import Home from "./containers/Home";
-import Page from "./containers/Page";
-
+import Routes from "./Routes";
 import NavBar from "./components/organisms/Navbar";
 import Footer from "./components/organisms/Footer";
 import NavLinks from "./components/molecules/NavLinks";
-
+import LockBodyScroll from "./components/atoms/LockBodyScroll";
 import Favicon from "../images/favicon.png";
 
-const LockBodyScroll = () => {
-    const location = useLocation();
-    useEffect(() => {
-        const { body } = document;
-        if (location.pathname.includes("/project/")) {
-            window.sjdco_scroll_distance = window.scrollY;
-            requestAnimationFrame(() => {
-                body.classList.add("noscroll");
-                body.style.top = `-${window.sjdco_scroll_distance}px`;
-            });
-        } else {
-            requestAnimationFrame(() => {
-                body.classList.remove("noscroll");
-                body.style.top = null;
-                if (window.sjdco_scroll_distance) {
-                    window.scroll(null, window.sjdco_scroll_distance);
-                    window.sjdco_scroll_distance = 0;
-                }
-            });
-        }
-    }, [location.pathname]);
-    return null;
-};
-
 const App = () => {
-    const dispatch = useDispatch();
-    const loading = useSelector(
-        state => state.initialFetchAll.loading || state.ui.showLoader
-    );
     const showMobileMenu = useSelector(state => state.ui.mobileMenuOpen);
-
-    useEffect(() => {
-        dispatch(actions.initialFetchAll());
-        loadReCaptcha();
-    }, []);
-
     const global = useSelector(state => state.global);
-
+    useEffect(() => {
+        setTimeout(() => {
+            loadReCaptcha();
+        }, 1000);
+    }, []);
     return (
         <>
             <LockBodyScroll />
@@ -63,17 +28,7 @@ const App = () => {
             >
                 <link rel="shortcut icon" type="image/png" href={Favicon} />
             </Helmet>
-            <CSSTransition in={loading} timeout={1200} classNames="loading">
-                <div className="loader loading-enter">
-                    <div className="loader-1" />
-                    <div className="loader-2" />
-                    <div className="loader-3" />
-                    <div className="loader-4" />
-                </div>
-            </CSSTransition>
-
             <NavBar />
-
             <div className={`mobile-menu ${showMobileMenu ? "active" : ""}`}>
                 <div className="container">
                     <nav className="links">
@@ -81,20 +36,7 @@ const App = () => {
                     </nav>
                 </div>
             </div>
-
-            <Switch>
-                <Route exact path="/" component={Home} />
-                <Route
-                    path="/wp-admin"
-                    component={() => {
-                        window.location.href = "https://wp.sjd.co/wp-admin";
-                        return null;
-                    }}
-                />
-                <Route exact path="/project/:projectSlug" component={Home} />
-                <Route exact path="/:path" component={Page} />
-            </Switch>
-
+            {renderRoutes(Routes)}
             <Footer />
         </>
     );
