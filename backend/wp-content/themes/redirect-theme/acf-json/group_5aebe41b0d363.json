@@ -21,6 +21,76 @@
             "append": "",
             "maxlength": "",
             "repeatable": true
+        },
+        {
+            "key": "field_5aec17de9319a",
+            "label": "Gallery Images",
+            "name": "gallery_images",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "",
+            "repeatable": true,
+            "sub_fields": [
+                {
+                    "key": "field_5aec17e79319b",
+                    "label": "Image",
+                    "name": "image",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "repeatable": true
+                }
+            ]
+        },
+        {
+            "key": "field_5e3518453c344",
+            "label": "Related Project",
+            "name": "related_project",
+            "type": "post_object",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "show_in_graphql": 1,
+            "post_type": [
+                "project"
+            ],
+            "taxonomy": "",
+            "allow_null": 0,
+            "multiple": 0,
+            "return_format": "object",
+            "ui": 1
         }
     ],
     "location": [
@@ -41,6 +111,8 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
+    "show_in_graphql": 1,
+    "graphql_field_name": "acf",
     "acf_component_defaults": {
         "repeatable": "0",
         "min": "",
@@ -49,5 +121,5 @@
         "button_label": "",
         "appearances": ""
     },
-    "modified": 1579255429
+    "modified": 1580540350
 }

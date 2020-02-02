@@ -39,12 +39,22 @@
         {
             "type": "vcs",
             "url": "https://github.com/treetrum/acf-component-field.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/wp-graphql/wp-graphql.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/wp-graphql/wp-graphql-acf.git"
         }
     ],
     "require": {
         "sjd/wp-sync-db": "^1.5",
         "sjd/advanced-custom-fields-pro": "^5.8",
         "treetrum/acf-component-field": "^2.0",
+        "wp-graphql/wp-graphql": "^0.6.1",
+        "wp-graphql/wp-graphql-acf": "^0.3",
         "wpackagist-plugin/classic-editor": "^1.5",
         "wpackagist-plugin/acf-to-rest-api": "^3.1",
         "wpackagist-plugin/relative-url": "^0.1.7",
