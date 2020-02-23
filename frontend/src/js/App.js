@@ -26,6 +26,10 @@ const App = () => {
                 titleTemplate={`%s - ${global.name}`}
                 defaultTitle="Sam Davis - Front End Developer"
             >
+                <meta
+                    name="description"
+                    content="Sam Davis - Sydney based frontend developer with over 6 years experience"
+                />
                 <link rel="shortcut icon" type="image/png" href={Favicon} />
             </Helmet>
             <NavBar />

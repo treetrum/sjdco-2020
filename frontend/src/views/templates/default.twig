@@ -5,10 +5,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Sam Davis - Front End Developer</title>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+
         {% if production %}
             <link rel="stylesheet" href="/css/main.css?v={{stylesheetHash}}">
+            <link rel="preconnect" href="https://wp.sjd.co">
+            <link rel="preload" href="/fonts/CircularStd-Black.woff2" as="font" crossorigin="anonymous"/>
+            <link rel="preload" href="/fonts/CircularStd-Book.woff2" as="font" crossorigin="anonymous"/>
+            <link rel="preload" href="/fonts/CircularStd-BoldItalic.woff2" as="font" crossorigin="anonymous"/>
+            <link rel="preload" href="/fonts/CircularStd-BookItalic.woff2" as="font" crossorigin="anonymous"/>
+            <link rel="preload" href="/fonts/CircularStd-Medium.woff2" as="font" crossorigin="anonymous"/>
+            <link rel="preload" href="/fonts/CircularStd-MediumItalic.woff2" as="font" crossorigin="anonymous"/>
+            <link rel="preload" href="/fonts/CircularStd-Bold.woff2" as="font" crossorigin="anonymous"/>
+            <link rel="preload" href="/fonts/CircularStd-BlackItalic.woff2" as="font" crossorigin="anonymous"/>
+            <link rel="preload" href="/fonts/SFMono-Regular.woff2" as="font" crossorigin="anonymous"/>
         {% endif %}
+
     </head>
     <body>
         {% block body %}{% endblock %}

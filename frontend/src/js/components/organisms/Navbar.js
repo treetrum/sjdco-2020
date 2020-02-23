@@ -26,6 +26,7 @@ const NavBar = () => {
                     </nav>
                     <div className="navbar-item hamburger">
                         <button
+                            aria-label="Menu"
                             style={{ background: "none", border: 0 }}
                             type="button"
                             className={`animated-hamburger ${

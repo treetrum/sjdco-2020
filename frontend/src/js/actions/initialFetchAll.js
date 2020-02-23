@@ -1,8 +1,6 @@
 import ActionTypes from "../constants/ActionTypes";
 import * as options from "./options";
-import * as page from "./page";
 import * as global from "./global";
-import * as projects from "./projects";
 
 const initialFetchAllRequest = () => ({
     type: ActionTypes.INITIAL_FETCH_ALL_REQUEST,

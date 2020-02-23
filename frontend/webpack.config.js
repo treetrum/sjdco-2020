@@ -102,7 +102,7 @@ module.exports = env => {
             hot: true,
             host: "0.0.0.0",
             disableHostCheck: true,
-            // https: false,
+            https: false,
         },
         plugins: [
             new MiniCssExtractPlugin({

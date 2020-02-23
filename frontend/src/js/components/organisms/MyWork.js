@@ -1,13 +1,22 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Route } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
+import actions from "../../actions/index";
 
 import ProjectSlideover from "./ProjectSlideover";
 import WorkTile from "../molecules/WorkTile";
 
 const MyWork = () => {
     const projects = useSelector(state => state.projects.projects);
+    const dispatch = useDispatch();
+
+    React.useEffect(() => {
+        if (projects.length === 0) {
+            dispatch(actions.fetchProjects());
+        }
+    }, [projects]);
+
     return (
         <>
             <section className="my-work" id="my-work">

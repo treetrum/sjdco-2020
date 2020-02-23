@@ -34,10 +34,11 @@ const Footer = () => {
                             <img src={SDLogo} alt="Sam Davis Logo" />
                         </PreloadLink>
                     </div>
-                    <div className="social-links">
+                    <ul className="social-links">
                         {socialLinks.map(link => (
                             <li key={link.link}>
                                 <a
+                                    aria-label={link.icon}
                                     href={link.link}
                                     target="_blank"
                                     rel="noreferrer noopener"
@@ -46,7 +47,7 @@ const Footer = () => {
                                 </a>
                             </li>
                         ))}
-                    </div>
+                    </ul>
                 </div>
             </footer>
             <footer className="secondary">

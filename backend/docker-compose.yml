@@ -24,6 +24,7 @@ services:
       - "5000:8080"
     volumes:
       - ../frontend/build:/app
+      - ../frontend/config-files/httpd.conf:/opt/bitnami/apache/conf/httpd.conf
     networks:
       - sjdco-network
 

@@ -5,14 +5,13 @@ import "../scss/main.scss";
 import "@babel/polyfill";
 import "intersection-observer";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { Provider, useDispatch, useSelector } from "react-redux";
 import SmoothScroll from "smooth-scroll";
 import { BrowserRouter as Router } from "react-router-dom";
 import NProgress from "nprogress";
 import { CSSTransition } from "react-transition-group";
-import { loadRecaptcha } from "react-recaptcha-google";
 import ReduxStore from "./Store";
 import DataFetcher from "./utils/DataFetcher";
 import Routes from "./Routes";
@@ -37,7 +36,7 @@ const Inner = () => {
     const dispatch = useDispatch();
     const [innerLoading, setInnerLoading] = useState(false);
     const [componentLoading, setComponentLoading] = useState(false);
-    const state = useSelector(state => state);
+    const state = useSelector(s => s);
     const handleLoadingStateChange = ({ loading, error, initial } = {}) => {
         setComponentLoading(!!initial);
         if (loading || innerLoading) {
