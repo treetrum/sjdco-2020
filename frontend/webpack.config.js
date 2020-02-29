@@ -26,23 +26,9 @@ module.exports = env => {
         module: {
             rules: [
                 {
-                    test: /\.tsx?$/,
-                    use: "ts-loader",
+                    test: /\.[tj]sx?$/,
                     exclude: /node_modules/,
-                },
-                {
-                    test: /\.jsx?$/,
-                    exclude: /node_modules/,
-                    use: {
-                        loader: "babel-loader",
-                        options: {
-                            presets: ["@babel/env", "@babel/react"],
-                            plugins: [
-                                "@babel/plugin-proposal-class-properties",
-                                "@babel/plugin-proposal-optional-chaining",
-                            ],
-                        },
-                    },
+                    use: "babel-loader",
                 },
                 {
                     test: /\.scss$/,

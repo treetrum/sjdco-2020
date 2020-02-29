@@ -30,6 +30,6 @@ export const initialFetchAll = (): ThunkResult<Promise<any>> => dispatch => {
             .catch(() => {
                 dispatch(initialFetchAllFail());
             }),
-        1200
+        process.env.NODE_ENV === "production" ? 1200 : 0
     );
 };
