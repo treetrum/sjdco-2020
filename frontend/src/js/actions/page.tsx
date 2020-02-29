@@ -42,6 +42,6 @@ export const fetchPage = (path: string = "/"): ThunkResult<any> => (
                 dispatch(fetchPageFail(err));
                 throw err;
             }),
-        500
+        250
     );
 };

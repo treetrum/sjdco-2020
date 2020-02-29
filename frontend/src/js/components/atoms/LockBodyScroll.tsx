@@ -1,9 +1,10 @@
 import * as React from "react";
 import { useLocation } from "react-router-dom";
 
+let scrollDistance = 0;
+
 const LockBodyScroll: React.FC = () => {
     const location = useLocation();
-    let scrollDistance = 0;
     React.useEffect(() => {
         const { body } = document;
         if (location.pathname.includes("/project/")) {
