@@ -1,5 +1,4 @@
 const path = require("path");
-const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ImageminPlugin = require("imagemin-webpack-plugin").default;
@@ -12,7 +11,7 @@ module.exports = env => {
         mode: "development",
         devtool: isProduction ? "" : "source-map",
         entry: {
-            bundle: path.join(__dirname, "./src/js/index.js"),
+            bundle: path.join(__dirname, "./src/js/index.tsx"),
             main: path.join(__dirname, "./src/scss/main.scss"),
             editor: path.join(__dirname, "./src/scss/editor.scss"),
         },
@@ -21,8 +20,16 @@ module.exports = env => {
             filename: "js/[name].js",
             publicPath: "/",
         },
+        resolve: {
+            extensions: [".js", ".jsx", ".ts", ".tsx"],
+        },
         module: {
             rules: [
+                {
+                    test: /\.tsx?$/,
+                    use: "ts-loader",
+                    exclude: /node_modules/,
+                },
                 {
                     test: /\.jsx?$/,
                     exclude: /node_modules/,
@@ -32,6 +39,7 @@ module.exports = env => {
                             presets: ["@babel/env", "@babel/react"],
                             plugins: [
                                 "@babel/plugin-proposal-class-properties",
+                                "@babel/plugin-proposal-optional-chaining",
                             ],
                         },
                     },
