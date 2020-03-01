@@ -1,4 +1,4 @@
-import * as Moment from "moment";
+import format from "date-fns/format";
 import { get } from "./index";
 import Config from "../constants/Config";
 
@@ -28,7 +28,7 @@ export const addFormEntry = (formId: string | number, formData: any) => {
         method: "POST",
         body: JSON.stringify({
             form_id: formId,
-            date_created: Moment().format("YYYY-MM-DD HH:mm:ss"),
+            date_created: format(new Date(), "YYYY-MM-DD HH:mm:ss"),
             source_url: window.location.href,
             ...formData,
         }),

@@ -21,11 +21,6 @@ import App from "./App";
 
 NProgress.configure({ minimum: 0.3, trickleSpeed: 100 });
 
-// Throttle this promise to resolve no faster than the specified time:
-// Promise.prototype.takeAtLeast = function(time) {
-//     return Promise.all([this, delay(time)]).then(([result]) => result);
-// };
-
 const Inner = () => {
     const dispatch = useDispatch();
     const [innerLoading, setInnerLoading] = React.useState(false);
