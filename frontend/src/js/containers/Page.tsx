@@ -42,8 +42,8 @@ const Page = () => {
     );
 };
 
-Page.preload = ({ passed: { dispatch }, location }) => {
-    return dispatch(pageActions.fetchPage(location.pathname));
+Page.preload = ({ passed: { store }, location }) => {
+    return store.dispatch(pageActions.fetchPage(location.pathname));
 };
 
 export default Page;
